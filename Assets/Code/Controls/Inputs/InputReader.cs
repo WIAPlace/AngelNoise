@@ -21,6 +21,16 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
             // so we can decide if we want to start in menu or gameplay
         }
     }
+    void OnDisable()
+    {   if(gameInput != null)
+        {
+            gameInput.Disable();
+        }
+    }
+    void OnDestroy()
+    {
+        OnDisable();
+    }
 
     // Set Gameplay
     public void SetGameplay()
@@ -45,7 +55,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
 
     public void OnMove(InputAction.CallbackContext context) // Move 
     {
-        //throw new System.NotImplementedException();
+        MoveEvent?.Invoke(context.ReadValue<Vector2>());
     }
 
 
@@ -53,7 +63,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
     /// 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        //throw new System.NotImplementedException();
+        
     }
 
     public void OnCancel(InputAction.CallbackContext context)
@@ -140,4 +150,16 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
     {
         //throw new System.NotImplementedException();
     }
+
+    // template 
+    /*
+    if (context.phase == InputActionPhase.Performed)
+    {
+        BlankEvent?.Invoke();
+    }
+    if (context.phase == InputActionPhase.Canceled)
+    {
+        BlankEventCanelled?.Invoke();
+    }
+    */
 }
