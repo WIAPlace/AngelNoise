@@ -16,6 +16,7 @@ public class ControlState_Movement : ControlState_Abs
     private Vector3 currentVelocity;
     private Vector3 smoothDampVelocity;
     
+    public Vector3 currentSpeed;
 
     /////////////////////////////////// DO ENTER
     public override void DoEnter() // When the state begins.
@@ -35,6 +36,7 @@ public class ControlState_Movement : ControlState_Abs
     public override ControlState_Abs DoState() // while the state is active
     {
         Move();
+        currentSpeed = currentVelocity;
         return this;
     }
 
