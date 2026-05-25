@@ -46,6 +46,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
     }
 
     public event Action<Vector2> MoveEvent;
+    public event Action DashEvent;
 
 
 
@@ -58,6 +59,13 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
         MoveEvent?.Invoke(context.ReadValue<Vector2>());
     }
 
+    public void OnJump(InputAction.CallbackContext context) // Jump / Dash
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {   
+            DashEvent?.Invoke();
+        }
+    }
 
     ///////// Not Implemented ////////////////////////////////////////////////////////////////////////
     /// 
@@ -86,10 +94,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
         //throw new System.NotImplementedException();
     }
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        //throw new System.NotImplementedException();
-    }
+    
 
     public void OnLook(InputAction.CallbackContext context)
     {

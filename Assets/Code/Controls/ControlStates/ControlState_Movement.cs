@@ -7,7 +7,6 @@ public class ControlState_Movement : ControlState_Abs
     [SerializeField] private float moveSpeed;
     [SerializeField] private float smoothMovement;
 
-    public Vector2 moveDir;
     private Vector3 directionalMovement;
     private Vector3 targetVelocity;
     
@@ -18,10 +17,11 @@ public class ControlState_Movement : ControlState_Abs
     
     public Vector3 currentSpeed;
 
+
+
     /////////////////////////////////// DO ENTER
     public override void DoEnter() // When the state begins.
-    {
-        input.MoveEvent += HandleMove;
+    {   
         currentVelocity = Vector3.zero;
         smoothDampVelocity = Vector3.zero;
     }
@@ -29,7 +29,7 @@ public class ControlState_Movement : ControlState_Abs
     /////////////////////////////////// DO EXIT
     public override void DoExit() // When the state is over.
     {
-        input.MoveEvent -= HandleMove; // unsubscribe
+        
     }
 
     ////////////////////////////////// DO STATE
@@ -40,14 +40,11 @@ public class ControlState_Movement : ControlState_Abs
         return this;
     }
 
-    private void HandleMove(Vector2 moveAxis)
-    {
-        moveDir = moveAxis;
-    }
+    
 
     private void Move()
     {
-        if(moveDir == Vector2.zero)
+        if(brain.moveDir == Vector2.zero)
         { // If the player has no controls down, so isnt touching any directional input, dont move
             //currentStepTime=stepTime; // reset both of these because we have stoped walking
             //newStepTime = 0;
@@ -66,7 +63,7 @@ public class ControlState_Movement : ControlState_Abs
             return;
         }
         //Debug.Log("Moving");
-        directionalMovement = playerBody.transform.forward * moveDir.y + playerBody.transform.right * moveDir.x;
+        directionalMovement = playerBody.transform.forward * brain.moveDir.y + playerBody.transform.right * brain.moveDir.x;
         targetVelocity = directionalMovement * moveSpeed;
         
         // smooth damp for a bit of slide.

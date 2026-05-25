@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 // the brain of the player controller.
@@ -23,21 +24,35 @@ public class Controls_Brain : MonoBehaviour
 
     // States
     [SerializeField] ControlState_Movement moveState;
+    [SerializeField] ControlState_Dash dashState;
 
     // Physics shit
     private float gravity = -9.81f; // gravity
     private Vector3 velocity; // speed of gravity
+
+    //[HideInInspector] 
+    public Vector2 moveDir; // movment direction as seen via inputs
+    
+    private bool dashAble = true; // checks if the player is able to dash. Cool Down
+    public Coroutine dashTimer;
 
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        input.MoveEvent += HandleMove;
+        input.DashEvent += HandleDash;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         
         ChangeState(moveState);
+    }
+    void OnDestroy()
+    {
+        input.MoveEvent -= HandleMove; // unsubscribe
+        input.DashEvent -= HandleDash;
     }
 
     // Update is called once per frame
@@ -89,5 +104,35 @@ public class Controls_Brain : MonoBehaviour
         // Move the controller
         controller.Move(velocity * Time.deltaTime);
     }
+
+    public void StopCo(Coroutine co)
+    { // will only stop if it is running.
+        if(co != null)
+        {
+            StopCoroutine(co);
+        }
+    }
+
+    // Dash Cool Down
+    public IEnumerator DashCoolDown(float time)
+    {
+        ChangeState(moveState);
+        yield return new WaitForSeconds(time);
+        dashAble = true;
+    }
+
+    private void HandleMove(Vector2 moveAxis) // Move
+    {
+        moveDir = moveAxis;
+    }
+    private void HandleDash() // Dash
+    {
+        if (dashAble)
+        {
+            ChangeState(dashState);
+            dashAble = false;
+        }
+    }
+    
     
 }
