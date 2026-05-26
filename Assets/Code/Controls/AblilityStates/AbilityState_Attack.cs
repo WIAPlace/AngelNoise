@@ -8,9 +8,6 @@ public class AbilityState_Attack : AbilityState_Abs
     [SerializeField] private GameObject hitBox;
     [SerializeField] private Animator anim;
 
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float rotSpeed;
-
     [SerializeField] EndOfAnim swingEnd;
 
 
