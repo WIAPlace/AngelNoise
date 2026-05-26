@@ -12,6 +12,8 @@ public class ControlState_Dash : ControlState_Abs
     private Vector3 dashVelocity;
     [SerializeField, Tooltip("Cool down between dashes")] private float dashCoolDown;
 
+    [SerializeField] private LayerMask dashMask;
+
     private Vector3 dashDir;
     private Vector2 dashDirV2; // used to see the vector 2 that was put in at time of press
 
@@ -42,6 +44,7 @@ public class ControlState_Dash : ControlState_Abs
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
     {
+        
         dashDirV2 = brain.moveDir;
         splitTime = dashTime*easeSwitch;
 
@@ -51,11 +54,15 @@ public class ControlState_Dash : ControlState_Abs
             dashDir = -playerBody.transform.forward;
         }
         dashCo = StartCoroutine(Dash());
+        controller.excludeLayers = dashMask;
+        brain.dashing = true; // not able to fire
     }
     /////////////////////////////////// DO EXIT
     public override void DoExit()
     {
+        brain.dashing = false; // able to fire
         currentDashVelocity = Vector3.zero; // set velocity to 0
+        controller.excludeLayers = 0;
         //brain.StopCo(dashCo);
     }
     /////////////////////////////////// DO STATE

@@ -47,6 +47,10 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
 
     public event Action<Vector2> MoveEvent;
     public event Action DashEvent;
+    public event Action AttackEvent;
+    public event Action BlockEvent;
+    public event Action BlockEventCancelled;
+    public event Action FireEvent;
 
 
 
@@ -66,13 +70,36 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
             DashEvent?.Invoke();
         }
     }
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {   
+            AttackEvent?.Invoke();
+        }
+    }
+
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            BlockEvent?.Invoke();
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            BlockEventCancelled?.Invoke();
+        }
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {   
+            FireEvent?.Invoke();
+        }
+    }
 
     ///////// Not Implemented ////////////////////////////////////////////////////////////////////////
     /// 
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        
-    }
 
     public void OnCancel(InputAction.CallbackContext context)
     {
@@ -156,6 +183,8 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
         //throw new System.NotImplementedException();
     }
 
+    
+
     // template 
     /*
     if (context.phase == InputActionPhase.Performed)
@@ -164,7 +193,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
     }
     if (context.phase == InputActionPhase.Canceled)
     {
-        BlankEventCanelled?.Invoke();
+        BlankEventCancelled?.Invoke();
     }
     */
 }
