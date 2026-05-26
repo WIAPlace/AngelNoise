@@ -101,7 +101,9 @@ public class Ability_Brain : MonoBehaviour
     // Handlers
     private void HandleAttack() // attack
     {
-        ChangeState(attackState);
+        if(currentState != attackState){
+            ChangeState(attackState);
+        }
     }
     private void HandleBlock() // block
     {
@@ -114,7 +116,7 @@ public class Ability_Brain : MonoBehaviour
     private void HandleFire() // fire
     {
         //Debug.Log(fireCoolDown);
-        if(fireCoolDown && !controls.dashing){ // you cant fire while dashing. 
+        if(fireCoolDown && !controls.dashing && currentState != attackState){ // you cant fire while dashing. 
             ChangeState(fireState);
             StartCoroutine(UniversalCoolDownMethod(val => fireCoolDown = val,fireState.coolDown));
         }

@@ -7,6 +7,8 @@ public class BulletBrain : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private LayerMask hitMask;
     [SerializeField] private LayerMask levelMask;
+    [SerializeField] private LayerMask weaponMask;
+    [SerializeField] private LayerMask worldMask;
  
     [SerializeField] private float bulletSpeed;
 
@@ -34,18 +36,36 @@ public class BulletBrain : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        if ((weaponMask.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            Debug.Log("Weapon");
+            transform.forward = collision.transform.forward;
+            rb.linearVelocity = Vector3.zero;
+            rb.linearVelocity = transform.forward * bulletSpeed*2;
+            return;
+        }
+        //else
         if ((hitMask.value & (1 << collision.gameObject.layer)) != 0)
         { // check if it is of a layer that it can damage / effect
-
+            
             //return;   
         }
         if ((levelMask.value & (1 << collision.gameObject.layer)) != 0)
         { //terminates self if hits the level geometry
+            Debug.Log("Destroy");
             Destroy(gameObject); 
             return;
         }
     }
 
-    
+    void OnTriggerExit(Collider other)
+    {
+        if ((levelMask.value & (1 << other.gameObject.layer)) != 0)
+        { 
+            Destroy(gameObject);
+        }
+
+    }
+
+
 }

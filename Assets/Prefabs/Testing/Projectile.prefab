@@ -156,8 +156,14 @@ MonoBehaviour:
   rb: {fileID: 2553961128655115544}
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   levelMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  weaponMask:
+    serializedVersion: 2
+    m_Bits: 512
+  worldMask:
+    serializedVersion: 2
+    m_Bits: 1024
   bulletSpeed: 20
