@@ -12,8 +12,8 @@ public class Controls_Brain : MonoBehaviour
 
     [field:SerializeField, Tooltip("Player Body")]
     public GameObject playerBody{get;private set;} 
-    [SerializeField] [Tooltip("First Person Camera attached to this so the body moves with the camera")]
-    private Transform playerView;
+    [Tooltip("First Person Camera attached to this so the body moves with the camera")]
+    public Transform playerView;
 
     private ControlState_Abs currentState;
     private ControlState_Abs previousState;
@@ -33,7 +33,9 @@ public class Controls_Brain : MonoBehaviour
     //[HideInInspector] 
     public Vector2 moveDir; // movment direction as seen via inputs
     
+    
     private bool dashAble = true; // checks if the player is able to dash. Cool Down
+    [HideInInspector] public bool dashing = false;
     public Coroutine dashTimer;
 
     
@@ -46,7 +48,7 @@ public class Controls_Brain : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        
+        dashAble = true;
         ChangeState(moveState);
     }
     void OnDestroy()
