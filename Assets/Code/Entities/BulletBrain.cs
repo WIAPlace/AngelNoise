@@ -38,7 +38,7 @@ public class BulletBrain : MonoBehaviour
     {
         if ((weaponMask.value & (1 << collision.gameObject.layer)) != 0)
         {
-            Debug.Log("Weapon");
+            //Debug.Log("Weapon");
             transform.forward = collision.transform.forward;
             rb.linearVelocity = Vector3.zero;
             rb.linearVelocity = transform.forward * bulletSpeed*2;
@@ -52,7 +52,7 @@ public class BulletBrain : MonoBehaviour
         }
         if ((levelMask.value & (1 << collision.gameObject.layer)) != 0)
         { //terminates self if hits the level geometry
-            Debug.Log("Destroy");
+            //Debug.Log("Destroy");
             Destroy(gameObject); 
             return;
         }
