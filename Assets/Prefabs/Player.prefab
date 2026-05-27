@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6686860904887763272}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416085871992770470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EyeLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140163605966537355}
   - component: {fileID: 490979029467300974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1463791531933424805}
   - component: {fileID: 2723933315134681807}
   - component: {fileID: 2253515238653433746}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FPCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 5380418344299838477}
   - component: {fileID: 5543512401589285625}
   - component: {fileID: 154637311918123341}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 478837725844909377}
   - component: {fileID: 7130135395808813450}
   - component: {fileID: 1343020336517889486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 6788934412631857383}
   - component: {fileID: 5689969359021085771}
   - component: {fileID: 6665346037644620927}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 7815967671252790248}
   - component: {fileID: 8681436368786249246}
   - component: {fileID: 5054313224461078238}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 542023267686203306}
   - component: {fileID: 1208065374075241186}
   - component: {fileID: 3828369440778314584}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
