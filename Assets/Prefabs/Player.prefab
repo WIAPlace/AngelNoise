@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2067486c87f5068479ce93363c090feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FilterToolController
-  activeInEditMode: 0
+  activeInEditMode: 1
   filterTools:
   - {fileID: 3096678400475027003}
   - {fileID: 5143542668803793581}
@@ -606,7 +606,7 @@ MonoBehaviour:
   rendererFeature: {fileID: 3165481958501340896, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   fullScreenMat: {fileID: 2100000, guid: 59b51e8b79be47844aef5fb2346a4e29, type: 2}
   activeState: 1
-  activeInEditor: 0
+  activeInEditor: 1
   colorSteps: 32
 --- !u!114 &5143542668803793581
 MonoBehaviour:
@@ -623,7 +623,7 @@ MonoBehaviour:
   rendererFeature: {fileID: -6682012046237205247, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
   fullScreenMat: {fileID: 2100000, guid: eff31a3779acac14895ec197613cd766, type: 2}
   activeState: 1
-  activeInEditor: 0
+  activeInEditor: 1
   pixelSize: 512
 --- !u!1 &7325533716875367468
 GameObject:

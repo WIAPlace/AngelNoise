@@ -43,4 +43,9 @@ public class FilterTool_Abs : MonoBehaviour
             StartUpActivity();
         }
     }
+
+    protected void OnDisable()
+    {
+        rendererFeature.SetActive(false);
+    }
 }
