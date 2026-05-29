@@ -24,17 +24,20 @@ public class SwordThrowStop : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
-        Debug.Log(collision.gameObject.layer);
+        //Debug.Log(collision.gameObject);
+        //Debug.Log(collision.gameObject.layer);
         if(!frozen && (stoppingMask.value & (1 << collision.gameObject.layer)) != 0){
             rb.constraints = RigidbodyConstraints.FreezeAll;
             frozen = true;
         }
-        else if((playerMask.value & (1 << collision.gameObject.layer)) != 0)
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if((playerMask.value & (1 << other.gameObject.layer)) != 0)
         {
             GlobalEventManager.TriggerCaughtEvent();
             Destroy(gameObject);
-        }
+        } 
     }
 
     // if it goes out of bounds

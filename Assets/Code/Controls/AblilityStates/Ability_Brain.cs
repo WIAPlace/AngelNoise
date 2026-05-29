@@ -152,11 +152,15 @@ public class Ability_Brain : MonoBehaviour
     }
     private void HandleBlock() // block
     {
-        ChangeState(blockState);
+        if(holdingSword){
+            ChangeState(blockState);
+        }
     }
     private void HandleBlockCancelled() // block cancelled
     {
-        ChangeState(idleState);
+        if(holdingSword && currentState == blockState){
+            ChangeState(idleState);
+        }
     }
     private void HandleAim() // Aim
     {
