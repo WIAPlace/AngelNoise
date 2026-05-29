@@ -27270,6 +27270,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 362225335433090293, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: <pullState>k__BackingField
+      value: 
+      objectReference: {fileID: 4839704023149038453}
     - target: {fileID: 685270595609910249, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.19
@@ -27310,6 +27314,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1208065374075241186, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828369440778314584, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828369440778314584, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 7659617927075878084, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
       propertyPath: m_Name
       value: Player
@@ -27317,8 +27333,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7659617927075878084, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4839704023149038453}
   m_SourcePrefab: {fileID: 100100000, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+--- !u!1 &4839704023149038452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7659617927075878084, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+  m_PrefabInstance: {fileID: 4839704023149038451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4839704023149038453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4839704023149038452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1633a8ba47f879946a6745ddfdad1653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityState_PullBack
+  pullInSpeed: 50
+  rotSpeed: 10
 --- !u!1001 &6465549740543729586
 PrefabInstance:
   m_ObjectHideFlags: 0

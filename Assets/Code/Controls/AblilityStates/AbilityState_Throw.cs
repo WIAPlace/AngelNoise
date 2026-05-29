@@ -41,7 +41,7 @@ public class AbilityState_Throw : AbilityState_Abs
         brain.tempRb.AddForce(throwPoint.forward *throwForce, ForceMode.VelocityChange);
 
         // add component for keeping rotation correct
-        brain.tempSword.AddComponent<SwordThrowForward>();
+        brain.stf = brain.tempSword.AddComponent<SwordThrowForward>();
         //////////////////////////////////////////////////////
 
         // game feel for throwing something

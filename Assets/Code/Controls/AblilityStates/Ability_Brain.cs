@@ -15,7 +15,7 @@ public class Ability_Brain : MonoBehaviour
     private Transform playerView;
     private InputReader input;
 
-    private AbilityState_Abs currentState;
+    public AbilityState_Abs currentState {get ;private set;} = null;
     public AbilityState_Abs previousState {get ;private set;} = null;
 
     // used for seeing what state we are in in the  inspector
@@ -28,6 +28,7 @@ public class Ability_Brain : MonoBehaviour
     [field:SerializeField] public AbilityState_Aim aimState {get;private set;}
     [field:SerializeField] public AbilityState_Idle idleState {get;private set;}
     [field:SerializeField] public AbilityState_Throw throwState {get;private set;}
+    [field:SerializeField] public AbilityState_PullBack pullState {get;private set;}
 
     [field:SerializeField] public GameObject sword {get;private set;}
     [field:SerializeField] public Animator anim {get;private set;}
@@ -38,10 +39,12 @@ public class Ability_Brain : MonoBehaviour
     
     [HideInInspector] public bool swingCoolDown = true; // cooldown for attacks
     [HideInInspector] public GameObject tempSword;
-    [HideInInspector] public Rigidbody tempRb;
+    //[HideInInspector] 
+    public Rigidbody tempRb;
+    [HideInInspector] public SwordThrowForward stf; // used as a refrenced to be destroyed and entered;
 
 
-    private bool holdingSword = true; // whether or not player is holding the sword at any current moment
+    [HideInInspector] public bool holdingSword = true; // whether or not player is holding the sword at any current moment
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,11 +62,14 @@ public class Ability_Brain : MonoBehaviour
         input.FireEvent += HandleAim;
         input.FireEventCancelled += HandleAimCancelled;
 
+        GlobalEventManager.CaughtEvent += HandleCaughtEvent;
+        GlobalEventManager.ThrownOutOfBoundsEvent += HandleToobEvent;
+
         ChangeState(idleState);
 
-        //fireCoolDown = true;
+        
         swingCoolDown = true;
-        //rbSword.isKinematic = true;
+        holdingSword = true;
     }
     void OnDestroy()
     {
@@ -72,7 +78,11 @@ public class Ability_Brain : MonoBehaviour
         input.BlockEventCancelled -= HandleBlockCancelled;
         input.FireEvent -= HandleAim;
         input.FireEventCancelled -= HandleAimCancelled;
-    }
+
+        GlobalEventManager.CaughtEvent -= HandleCaughtEvent;
+        GlobalEventManager.ThrownOutOfBoundsEvent -= HandleToobEvent;
+
+    }   
 
     // Update is called once per frame
     void Update()
@@ -136,10 +146,7 @@ public class Ability_Brain : MonoBehaviour
         {
             if(tempSword != null)
             {
-                Destroy(tempRb);
-                Destroy(tempSword);
-                sword.SetActive(true);
-                holdingSword = true;
+                ChangeState(pullState);
             }
         }
     }
@@ -159,10 +166,22 @@ public class Ability_Brain : MonoBehaviour
             //StartCoroutine(UniversalCoolDownMethod(val => fireCoolDown = val,fireState.coolDown));
         }
     }
-    private void HandleAimCancelled()
+    private void HandleAimCancelled() // aim cancelled
     {
         ChangeState(idleState);
         //else bring back the sword
     }
     
+    private void HandleCaughtEvent()
+    {
+        sword.SetActive(true);
+        holdingSword = true;
+    }
+    private void HandleToobEvent()
+    {
+        // Stop all forces on the object
+        tempRb.constraints = RigidbodyConstraints.FreezeAll;
+        // Force player to pull the sword back in
+        ChangeState(pullState); 
+    }
 }
