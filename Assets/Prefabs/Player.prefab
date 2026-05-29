@@ -550,7 +550,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6377529388338507165}
-  - component: {fileID: 1679255032771956775}
+  - component: {fileID: 3353016428988316779}
+  - component: {fileID: 3096678400475027003}
+  - component: {fileID: 5143542668803793581}
   m_Layer: 7
   m_Name: RenderSettings
   m_TagString: Untagged
@@ -573,7 +575,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 685270595609910249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1679255032771956775
+--- !u!114 &3353016428988316779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -582,12 +584,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 6418971146741393978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 095cdc70a841ee84da5f3f8f880c3158, type: 3}
+  m_Script: {fileID: 11500000, guid: 2067486c87f5068479ce93363c090feb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RenderSettings
-  inScene: 0
-  rendererFeature: {fileID: -6682012046237205247, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::FilterToolController
+  activeInEditMode: 0
+  filterTools:
+  - {fileID: 3096678400475027003}
+  - {fileID: 5143542668803793581}
+--- !u!114 &3096678400475027003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418971146741393978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62e9144c2cd9de48ba3084469d2fcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FilterTool_ColorBanding
+  rendererFeature: {fileID: 3165481958501340896, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  fullScreenMat: {fileID: 2100000, guid: 59b51e8b79be47844aef5fb2346a4e29, type: 2}
   activeState: 1
+  activeInEditor: 0
+  colorSteps: 32
+--- !u!114 &5143542668803793581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418971146741393978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ca8f1cac89eb548904f9be5fad95d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FilterTool_Pixel
+  rendererFeature: {fileID: -6682012046237205247, guid: f288ae1f4751b564a96ac7587541f7a2, type: 2}
+  fullScreenMat: {fileID: 2100000, guid: eff31a3779acac14895ec197613cd766, type: 2}
+  activeState: 1
+  activeInEditor: 0
+  pixelSize: 512
 --- !u!1 &7325533716875367468
 GameObject:
   m_ObjectHideFlags: 0
