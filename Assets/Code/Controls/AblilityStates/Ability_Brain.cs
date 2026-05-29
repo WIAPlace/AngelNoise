@@ -1,20 +1,22 @@
 using System.Collections;
-using JetBrains.Annotations;
+using Unity.Cinemachine;
 using UnityEngine;
 
 // controller of the players abilities
 public class Ability_Brain : MonoBehaviour
 {
-    [field: SerializeField] public Controls_Brain controls;
+    
+    [field: SerializeField] public Controls_Brain controls {get;private set;}
+    [field: SerializeField] public CinemachineCamera cinCam {get;private set;}
 
     [HideInInspector]
-    public GameObject playerBody{get;private set;} 
+    public GameObject playerBody {get;private set;} 
 
     private Transform playerView;
     private InputReader input;
 
     private AbilityState_Abs currentState;
-    private AbilityState_Abs previousState;
+    public AbilityState_Abs previousState {get ;private set;} = null;
 
     // used for seeing what state we are in in the  inspector
     public string debugCurrentStateName;
@@ -23,17 +25,29 @@ public class Ability_Brain : MonoBehaviour
     // States
     [field:SerializeField] public AbilityState_Attack attackState {get;private set;}
     [field:SerializeField] public AbilityState_Block blockState {get;private set;}
-    [field:SerializeField] public AbilityState_Fire fireState {get;private set;}
+    [field:SerializeField] public AbilityState_Aim aimState {get;private set;}
     [field:SerializeField] public AbilityState_Idle idleState {get;private set;}
+    [field:SerializeField] public AbilityState_Throw throwState {get;private set;}
+
+    [field:SerializeField] public GameObject sword {get;private set;}
+    [field:SerializeField] public Animator anim {get;private set;}
 
 
-    [HideInInspector] public bool fireCoolDown = true; // cooldown for shots
+
+    //[HideInInspector] public bool fireCoolDown = true; // cooldown for shots
     
     [HideInInspector] public bool swingCoolDown = true; // cooldown for attacks
+    [HideInInspector] public GameObject tempSword;
+    [HideInInspector] public Rigidbody tempRb;
+
+
+    private bool holdingSword = true; // whether or not player is holding the sword at any current moment
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Debug.Log(cinCam);
+        //Debug.Log(cinCam.Lens.FieldOfView);
         //set up
         input = controls.input;
         playerView = controls.playerView;
@@ -42,19 +56,22 @@ public class Ability_Brain : MonoBehaviour
         input.AttackEvent += HandleAttack;
         input.BlockEvent += HandleBlock;
         input.BlockEventCancelled += HandleBlockCancelled;
-        input.FireEvent += HandleFire;
+        input.FireEvent += HandleAim;
+        input.FireEventCancelled += HandleAimCancelled;
 
         ChangeState(idleState);
 
-        fireCoolDown = true;
+        //fireCoolDown = true;
         swingCoolDown = true;
+        //rbSword.isKinematic = true;
     }
     void OnDestroy()
     {
         input.AttackEvent -= HandleAttack;
         input.BlockEvent -= HandleBlock;
         input.BlockEventCancelled -= HandleBlockCancelled;
-        input.FireEvent -= HandleFire;
+        input.FireEvent -= HandleAim;
+        input.FireEventCancelled -= HandleAimCancelled;
     }
 
     // Update is called once per frame
@@ -89,20 +106,41 @@ public class Ability_Brain : MonoBehaviour
             //co = null;
         }
     }
+
+    /*
     public IEnumerator UniversalCoolDownMethod(System.Action<bool> coolBool, float coolTime)
     {
         coolBool(false);
         yield return new WaitForSeconds(coolTime);
         coolBool(true);
     }
-
+    */
 
 
     // Handlers
     private void HandleAttack() // attack
     {
-        if(currentState != attackState){
-            ChangeState(attackState);
+        if(holdingSword){
+            if(currentState == aimState) // throw sword if aiming
+            {
+                //rbSword.isKinematic = false;
+                holdingSword = false;
+                ChangeState(throwState);
+                return;
+            }
+            if(currentState != attackState){ // swing sword
+                ChangeState(attackState);
+            }
+        }
+        else
+        {
+            if(tempSword != null)
+            {
+                Destroy(tempRb);
+                Destroy(tempSword);
+                sword.SetActive(true);
+                holdingSword = true;
+            }
         }
     }
     private void HandleBlock() // block
@@ -113,13 +151,18 @@ public class Ability_Brain : MonoBehaviour
     {
         ChangeState(idleState);
     }
-    private void HandleFire() // fire
+    private void HandleAim() // Aim
     {
         //Debug.Log(fireCoolDown);
-        if(fireCoolDown && !controls.dashing && currentState != attackState){ // you cant fire while dashing. 
-            ChangeState(fireState);
-            StartCoroutine(UniversalCoolDownMethod(val => fireCoolDown = val,fireState.coolDown));
+        if(holdingSword && !controls.dashing && currentState != attackState){ // you cant fire while dashing. 
+            ChangeState(aimState);
+            //StartCoroutine(UniversalCoolDownMethod(val => fireCoolDown = val,fireState.coolDown));
         }
+    }
+    private void HandleAimCancelled()
+    {
+        ChangeState(idleState);
+        //else bring back the sword
     }
     
 }

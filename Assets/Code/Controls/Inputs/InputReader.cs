@@ -51,6 +51,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
     public event Action BlockEvent;
     public event Action BlockEventCancelled;
     public event Action FireEvent;
+    public event Action FireEventCancelled;
 
 
 
@@ -95,6 +96,10 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions, GameInput
         if (context.phase == InputActionPhase.Performed)
         {   
             FireEvent?.Invoke();
+        }
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            FireEventCancelled?.Invoke();
         }
     }
 

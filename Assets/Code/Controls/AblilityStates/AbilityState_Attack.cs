@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AbilityState_Attack : AbilityState_Abs
 {
-    [SerializeField] private GameObject sword;
+    
+
     [SerializeField] private GameObject hitBox;
-    [SerializeField] private Animator anim;
 
     [SerializeField] EndOfAnim swingEnd;
 
@@ -27,15 +27,10 @@ public class AbilityState_Attack : AbilityState_Abs
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
     {
-        //Debug.Log("Attack");
-        //sword.transform.localPosition = basePosition.localPosition;
-        //sword.transform.localRotation = basePosition.localRotation;
-        anim.ResetTrigger("Block");
-        anim.ResetTrigger("UnBlock");
-        anim.ResetTrigger("Swing");
+        // reset triggers
+        ResetTriggers();
 
-
-        anim.SetTrigger("Swing");
+        brain.anim.SetTrigger(SwingHash);
         hitBox.SetActive(true);
 
         // When the state begins.
@@ -43,7 +38,7 @@ public class AbilityState_Attack : AbilityState_Abs
     /////////////////////////////////// DO EXIT
     public override void DoExit()
     {
-        anim.ResetTrigger("Swing");
+        brain.anim.ResetTrigger(SwingHash);
         hitBox.SetActive(false);
         // When the state is over.
     }
