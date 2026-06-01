@@ -43,7 +43,7 @@ public class EntityBody : MonoBehaviour, IEntityHit
     public void Hit(Vector3 direction)
     {// push entity in direction
         dir = -direction;
-        rb.excludeLayers = hitMask;
+        //rb.excludeLayers = hitMask;
         ApplyPhysicsKnockback(dir,hitForce,hitDuration);
     }
 
@@ -85,6 +85,6 @@ public class EntityBody : MonoBehaviour, IEntityHit
         
         agent.enabled = true;
         hitAble = true;
-        rb.excludeLayers = 0;
+        //rb.excludeLayers = 0;
     }
 }

@@ -16788,6 +16788,7 @@ GameObject:
   - component: {fileID: 1180886249}
   - component: {fileID: 1180886252}
   - component: {fileID: 1180886251}
+  - component: {fileID: 1180886253}
   m_Layer: 12
   m_Name: TestDummy
   m_TagString: Untagged
@@ -16846,7 +16847,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -16894,14 +16895,28 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
+--- !u!114 &1180886253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180886247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b8518e272f32b4baf815a319aff594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveTwoardsPlayer
+  agent: {fileID: 1180886249}
+  target: {fileID: 4839704023149038452}
 --- !u!1 &1216022999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bd163704300363419a516927c8c485a, type: 3}
@@ -27732,6 +27747,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3480968932776151624, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: swordLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480968932776151624, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: swordRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480968932776151624, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: hitMask.m_Bits
+      value: 4353
+      objectReference: {fileID: 0}
     - target: {fileID: 7659617927075878084, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
       propertyPath: m_Name
       value: Player
@@ -27741,6 +27768,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+--- !u!1 &4839704023149038452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2161740573915561880, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+  m_PrefabInstance: {fileID: 4839704023149038451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
