@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Data;
+using NUnit.Framework.Constraints;
 using Unity.Cinemachine;
+using Unity.Mathematics;
 using UnityEngine;
 
 // Should only activate if last state was aim
@@ -10,11 +13,10 @@ public class AbilityState_Throw : AbilityState_Abs
     [SerializeField] private Transform throwPoint;
 
     [SerializeField] private CinemachineImpulseSource impSour;
+    
 
     [Header("Values")]
     [SerializeField] private float throwForce;
-
-    
 
     private Transform view;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +51,7 @@ public class AbilityState_Throw : AbilityState_Abs
 
         // change state to idle
         brain.ChangeState(brain.idleState);
+        //StartCoroutine(DetectCollision());
 
     }
     /////////////////////////////////// DO EXIT
@@ -61,5 +64,4 @@ public class AbilityState_Throw : AbilityState_Abs
     {
         return this;
     }
-
 }

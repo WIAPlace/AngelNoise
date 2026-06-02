@@ -163,3 +163,8 @@ MonoBehaviour:
   boundsMask:
     serializedVersion: 2
     m_Bits: 1024
+  swordLength: 1
+  swordRadius: 0.1
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4353
