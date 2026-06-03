@@ -168,3 +168,6 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 4353
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 4096

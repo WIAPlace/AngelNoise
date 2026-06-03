@@ -13,6 +13,7 @@ public class SwordThrowStop : MonoBehaviour
     [SerializeField] private float swordLength;
     [SerializeField] private float swordRadius;
     [SerializeField] private LayerMask hitMask;
+    [SerializeField] private LayerMask enemyMask;
 
     float maxDistance = 5f;
     
@@ -62,7 +63,17 @@ public class SwordThrowStop : MonoBehaviour
         // Perform the SphereCast
         if (Physics.SphereCast(startPos, swordRadius, direction, out RaycastHit hit, distance, hitMask))
         {
-            rb.constraints = RigidbodyConstraints.FreezeAll; 
+            // check if the collider has hit anything notible to activate or stop for
+            if((enemyMask.value & (1 << hit.collider.gameObject.layer)) != 0)
+            {
+                if(hit.collider.gameObject.TryGetComponent<IEntityHit>(out IEntityHit hitInterface)){
+                    hitInterface.Hit(transform.position);
+                }
+            }
+            if((stoppingMask.value & (1 << hit.collider.gameObject.layer)) != 0)
+            {
+                rb.constraints = RigidbodyConstraints.FreezeAll; 
+            }
         }
     }
 

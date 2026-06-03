@@ -36,15 +36,19 @@ public class EntityBody : MonoBehaviour, IEntityHit
         {
             hitAble = false;
             // get the point of contact and convert it to the direction
-            Hit(collision.transform.position - transform.position);
+            Hit(collision.transform.position);
         }
     }
 
     public void Hit(Vector3 direction)
     {// push entity in direction
-        dir = -direction;
-        //rb.excludeLayers = hitMask;
-        ApplyPhysicsKnockback(dir,hitForce,hitDuration);
+        if(hitAble){ // stops from repededly being hit.
+            hitAble = false; 
+            direction -= transform.position;
+            dir = -direction;
+            //rb.excludeLayers = hitMask;
+            ApplyPhysicsKnockback(dir,hitForce,hitDuration);
+        }
     }
 
     public void ApplyPhysicsKnockback(Vector3 direction, float force, float duration)

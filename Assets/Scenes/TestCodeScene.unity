@@ -16556,6 +16556,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!4 &1172731642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2181279532238772092, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+  m_PrefabInstance: {fileID: 4839704023149038451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1173845441
 GameObject:
   m_ObjectHideFlags: 0
@@ -16826,7 +16831,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -16874,7 +16879,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 2688
-  hitForce: 10
+  hitForce: 2
   hitDuration: 1
 --- !u!54 &1180886252
 Rigidbody:
@@ -27707,6 +27712,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 478837725844909377, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 1172731642}
+    - target: {fileID: 478837725844909377, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: hitRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 478837725844909377, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
+      propertyPath: enemyMask.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 685270595609910249, guid: ec5d3633993a02b4bbd5d18f0c3b5557, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.19
