@@ -894,7 +894,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityState_Attack
   hitBox: {fileID: 7325533716875367468}
+  view: {fileID: 2181279532238772092}
   swingEnd: {fileID: 5054313224461078238}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  hitRange: 5
 --- !u!114 &7130135395808813450
 MonoBehaviour:
   m_ObjectHideFlags: 0
