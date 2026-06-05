@@ -1332,7 +1332,7 @@ GameObject:
   - component: {fileID: 1405747612253935416}
   - component: {fileID: 8723293213891251698}
   - component: {fileID: 5174679339639811748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BaseDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
