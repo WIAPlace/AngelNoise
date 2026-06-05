@@ -899,7 +899,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 4096
-  hitRange: 5
+  hitRange: 3
 --- !u!114 &7130135395808813450
 MonoBehaviour:
   m_ObjectHideFlags: 0
