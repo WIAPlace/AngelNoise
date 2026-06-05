@@ -8,9 +8,9 @@ public class WaypointGeneratorWindow : EditorWindow
     private Transform parentTransform;
     private int numberOfWaypoints = 10;
 
-
-    private Vector3 boxCenter = Vector3.zero;
-    private Vector3 boxSize = new Vector3(10f, 10f, 10f);
+    private int sectors; // how many boxes there are
+    private Vector3[] boxCenter = new Vector3[5];// = Vector3.zero;
+    private Vector3[] boxSize = new Vector3[5];//(10f, 10f, 10f);
 
 
     private bool showDebugBox = true;
@@ -40,14 +40,19 @@ public class WaypointGeneratorWindow : EditorWindow
 
 
         numberOfWaypoints = EditorGUILayout.IntField("Number of Waypoints", numberOfWaypoints);
+        sectors = EditorGUILayout.IntField("Number of Sectors", sectors);
 
 
         EditorGUILayout.Space();
 
 
         EditorGUILayout.LabelField("Box Settings", EditorStyles.boldLabel);
-        boxCenter = EditorGUILayout.Vector3Field("Box Center (World)", boxCenter);
-        boxSize = EditorGUILayout.Vector3Field("Box Size", boxSize);
+        for(int i = 0; i<sectors;i++){
+            EditorGUILayout.LabelField("Box ["+i+"]", EditorStyles.boldLabel);
+            boxCenter[i] = EditorGUILayout.Vector3Field("Box ["+i+"] Center (World)", boxCenter[i]);
+            boxSize[i] = EditorGUILayout.Vector3Field("Box ["+i+"] Size", boxSize[i]);
+            EditorGUILayout.Space();
+        }
 
 
         EditorGUILayout.Space();
@@ -95,14 +100,14 @@ public class WaypointGeneratorWindow : EditorWindow
     }
 
 
-    private Vector3 GetRandomPositionInBox()
+    private Vector3 GetRandomPositionInBox(int box)
     {
-        Vector3 halfSize = boxSize * 0.5f;
+        Vector3 halfSize = boxSize[box] * 0.5f;
 
 
-        float x = Random.Range(boxCenter.x - halfSize.x, boxCenter.x + halfSize.x);
-        float y = Random.Range(boxCenter.y - halfSize.y, boxCenter.y + halfSize.y);
-        float z = Random.Range(boxCenter.z - halfSize.z, boxCenter.z + halfSize.z);
+        float x = Random.Range(boxCenter[box].x - halfSize.x, boxCenter[box].x + halfSize.x);
+        float y = Random.Range(boxCenter[box].y - halfSize.y, boxCenter[box].y + halfSize.y);
+        float z = Random.Range(boxCenter[box].z - halfSize.z, boxCenter[box].z + halfSize.z);
 
 
         return new Vector3(x, y, z);
@@ -118,23 +123,24 @@ public class WaypointGeneratorWindow : EditorWindow
             return;
         }
 
-
-        for (int i = 0; i < numberOfWaypoints; i++)
-        {
-            Vector3 randomPos = GetRandomPositionInBox();
-
-
-            GameObject waypoint = new GameObject($"Waypoint_{i}");
-            waypoint.transform.position = randomPos;
-
-
-            if (parentTransform != null)
+        for(int b = 0; b<sectors;b++){
+            for (int i = 0; i < numberOfWaypoints; i++)
             {
-                waypoint.transform.SetParent(parentTransform);
+                Vector3 randomPos = GetRandomPositionInBox(b);
+
+
+                GameObject waypoint = new GameObject($"Waypoint_{i}");
+                waypoint.transform.position = randomPos;
+
+
+                if (parentTransform != null)
+                {
+                    waypoint.transform.SetParent(parentTransform);
+                }
+
+
+                generatedWaypoints.Add(waypoint);
             }
-
-
-            generatedWaypoints.Add(waypoint);
         }
     }
 
@@ -165,7 +171,9 @@ public class WaypointGeneratorWindow : EditorWindow
         if (showDebugBox)
         {
             Handles.color = debugBoxColor;
-            Handles.DrawWireCube(boxCenter, boxSize);
+            for(int i = 0; i<sectors;i++){
+                Handles.DrawWireCube(boxCenter[i], boxSize[i]);
+            }
         }
 
 
