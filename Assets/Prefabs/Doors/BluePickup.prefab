@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6505689093586070585}
   - component: {fileID: 7527789836178446935}
   - component: {fileID: 7742404947077149346}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BlueKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
