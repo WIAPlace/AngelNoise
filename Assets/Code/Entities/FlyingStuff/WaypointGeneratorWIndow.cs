@@ -5,12 +5,15 @@ using System.Collections.Generic;
 
 public class WaypointGeneratorWindow : EditorWindow
 {
-    private Transform parentTransform;
-    private int numberOfWaypoints = 10;
-
     private int sectors; // how many boxes there are
-    private Vector3[] boxCenter = new Vector3[5];// = Vector3.zero;
-    private Vector3[] boxSize = new Vector3[5];//(10f, 10f, 10f);
+    private static int maxSectorAmnt = 10; 
+
+    private Transform[] parentTransform = new Transform[maxSectorAmnt];
+    private int[] numberOfWaypoints = new int[maxSectorAmnt];
+
+    
+    private Vector3[] boxCenter = new Vector3[maxSectorAmnt];// = Vector3.zero;
+    private Vector3[] boxSize = new Vector3[maxSectorAmnt];//(10f, 10f, 10f);
 
 
     private bool showDebugBox = true;
@@ -24,6 +27,7 @@ public class WaypointGeneratorWindow : EditorWindow
 
     private List<GameObject> generatedWaypoints = new List<GameObject>();
 
+    private Vector2 scrollPosition;
 
 
 
@@ -36,24 +40,35 @@ public class WaypointGeneratorWindow : EditorWindow
 
     private void OnGUI()
     {
-        parentTransform = (Transform)EditorGUILayout.ObjectField("Parent Transform", parentTransform, typeof(Transform), true);
-
-
-        numberOfWaypoints = EditorGUILayout.IntField("Number of Waypoints", numberOfWaypoints);
         sectors = EditorGUILayout.IntField("Number of Sectors", sectors);
-
-
-        EditorGUILayout.Space();
-
-
-        EditorGUILayout.LabelField("Box Settings", EditorStyles.boldLabel);
-        for(int i = 0; i<sectors;i++){
-            EditorGUILayout.LabelField("Box ["+i+"]", EditorStyles.boldLabel);
-            boxCenter[i] = EditorGUILayout.Vector3Field("Box ["+i+"] Center (World)", boxCenter[i]);
-            boxSize[i] = EditorGUILayout.Vector3Field("Box ["+i+"] Size", boxSize[i]);
-            EditorGUILayout.Space();
+        if (parentTransform == null || parentTransform.Length == 0)
+        {
+            parentTransform = new Transform[maxSectorAmnt];
+        }
+        if (numberOfWaypoints == null || numberOfWaypoints.Length == 0)
+        {
+            numberOfWaypoints = new int[maxSectorAmnt];
         }
 
+        using (var scrollView = new GUILayout.ScrollViewScope(scrollPosition))
+        {
+            // Update our position variable as the user scrolls
+            scrollPosition = scrollView.scrollPosition;
+
+            EditorGUILayout.LabelField("Box Settings", EditorStyles.boldLabel);
+            for(int i = 0; i<sectors;i++){
+                //Debug.Log(i);
+                EditorGUILayout.LabelField("Box ["+i+"]", EditorStyles.boldLabel);
+                
+                parentTransform[i] = (Transform)EditorGUILayout.ObjectField("Parent Transform ["+i+"]", parentTransform[i], typeof(Transform), true);
+                
+                numberOfWaypoints[i] = EditorGUILayout.IntField("Number of Waypoints ["+i+"]", numberOfWaypoints[i]);
+
+                boxCenter[i] = EditorGUILayout.Vector3Field("Box ["+i+"] Center (World)", boxCenter[i]);
+                boxSize[i] = EditorGUILayout.Vector3Field("Box ["+i+"] Size", boxSize[i]);
+                EditorGUILayout.Space();
+            }
+        }
 
         EditorGUILayout.Space();
 
@@ -118,13 +133,18 @@ public class WaypointGeneratorWindow : EditorWindow
 
     private void GenerateRandomWaypoints()
     {
-        if (numberOfWaypoints <= 0)
+        if (sectors <= 0)
         {
             return;
         }
 
         for(int b = 0; b<sectors;b++){
-            for (int i = 0; i < numberOfWaypoints; i++)
+            if (numberOfWaypoints[b] <= 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < numberOfWaypoints[b]; i++)
             {
                 Vector3 randomPos = GetRandomPositionInBox(b);
 
@@ -133,9 +153,9 @@ public class WaypointGeneratorWindow : EditorWindow
                 waypoint.transform.position = randomPos;
 
 
-                if (parentTransform != null)
+                if (parentTransform[b] != null)
                 {
-                    waypoint.transform.SetParent(parentTransform);
+                    waypoint.transform.SetParent(parentTransform[b]);
                 }
 
 
