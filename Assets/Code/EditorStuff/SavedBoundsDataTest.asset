@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SavedBoundsDataTest
   m_EditorClassIdentifier: Assembly-CSharp::BoundsDataAsset
   individualBoundsList:
-  - m_Center: {x: -52.1, y: 39.8, z: 121.8}
-    m_Extent: {x: 38.132435, y: 10.817663, z: 24.157843}
+  - m_Center: {x: 36.04193, y: 2.279893, z: 157.70702}
+    m_Extent: {x: 2.2922015, y: 2.292202, z: 2.292202}
   - m_Center: {x: 37.7, y: 9.19, z: 168.19}
     m_Extent: {x: 4.233123, y: 4.233123, z: 4.233123}
   - m_Center: {x: 21.6, y: 9.19, z: 168.19}
     m_Extent: {x: 4.233123, y: 4.233123, z: 4.233123}
+  - m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}

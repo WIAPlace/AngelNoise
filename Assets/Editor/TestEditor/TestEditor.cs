@@ -254,13 +254,15 @@ public class TestEditor : EditorWindow
 
     private void DrawBoundsInSceneView(SceneView sceneView)
     {
-        BoundsDataAsset asset = dataAssetField.value as BoundsDataAsset;
-        if (asset == null) return;
-
-        Handles.color = Color.cyan;
-        foreach (Bounds indBounds in asset.individualBoundsList)
-        {
-            Handles.DrawWireCube(indBounds.center, indBounds.size);
+        if(dataAssetField!=null) {
+            BoundsDataAsset asset = dataAssetField.value as BoundsDataAsset;
+            if (asset == null) return;
+        
+            Handles.color = Color.cyan;
+            foreach (Bounds indBounds in asset.individualBoundsList)
+            {
+                Handles.DrawWireCube(indBounds.center, indBounds.size);
+            }
         }
     }
 }
