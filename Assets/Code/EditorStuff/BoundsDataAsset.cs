@@ -6,4 +6,5 @@ public class BoundsDataAsset : ScriptableObject
 {
     // Saves each individual object's box separately in a list
     public List<Bounds> individualBoundsList = new List<Bounds>();
+    public int waypoints;
 }

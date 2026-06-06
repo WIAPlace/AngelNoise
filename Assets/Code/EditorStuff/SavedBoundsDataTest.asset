@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: SavedBoundsDataTest
   m_EditorClassIdentifier: Assembly-CSharp::BoundsDataAsset
   individualBoundsList:
-  - m_Center: {x: 36.04193, y: 2.279893, z: 157.70702}
-    m_Extent: {x: 2.2922015, y: 2.292202, z: 2.292202}
-  - m_Center: {x: 37.7, y: 9.19, z: 168.19}
-    m_Extent: {x: 4.233123, y: 4.233123, z: 4.233123}
-  - m_Center: {x: 21.6, y: 9.19, z: 168.19}
-    m_Extent: {x: 4.233123, y: 4.233123, z: 4.233123}
-  - m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+  - m_Center: {x: 20.7, y: 8.7205, z: 164.8}
+    m_Extent: {x: 16.9, y: 4.75, z: 18.7}
+  - m_Center: {x: 20.597881, y: 8.7205, z: 71.43615}
+    m_Extent: {x: 14.543548, y: 2.6219096, z: 23.772394}
+  - m_Center: {x: 54.62298, y: 3.1, z: 120.98385}
+    m_Extent: {x: 15.040323, y: 1.1305298, z: 9.474477}
+  - m_Center: {x: -38.76702, y: 12.01, z: 168.55385}
+    m_Extent: {x: 29.077457, y: 2.6405008, z: 13.451887}
+  - m_Center: {x: -42.057022, y: 15.92, z: 120.653854}
+    m_Extent: {x: 25.060408, y: 4.234835, z: 19.890297}
+  waypoints: 14
