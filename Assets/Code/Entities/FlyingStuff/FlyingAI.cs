@@ -12,6 +12,7 @@ public class FlyingAI : MonoBehaviour
 
 
     [Header("Movement Settings")]
+    [SerializeField] private int bound = 0;
     [SerializeField] private float moveSpeed = 20f;
     [SerializeField] private float rotationSpeed = 7.5f;
     [SerializeField] private float circleDuration = 5f;
@@ -36,7 +37,7 @@ public class FlyingAI : MonoBehaviour
         if (waypointHolder != null)
         {
             waypointHolder.RefreshWaypoints();
-            waypoints = waypointHolder.Waypoints;
+            waypoints = waypointHolder.Waypoints[bound];
         }
 
 
