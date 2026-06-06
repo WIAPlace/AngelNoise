@@ -1,8 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-// SO for saving data for bounds and other stuff for testing out
-[CreateAssetMenu(fileName = "SavedBoundsData", menuName = "Tools/Bounds Data File")]
+[CreateAssetMenu(fileName = "NewMultiBoundsData", menuName = "Tools/Multi-Bounds Data Asset")]
 public class BoundsDataAsset : ScriptableObject
 {
-    public Bounds savedBounds;
+    // Saves each individual object's box separately in a list
+    public List<Bounds> individualBoundsList = new List<Bounds>();
 }
