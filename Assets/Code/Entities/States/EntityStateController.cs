@@ -12,6 +12,7 @@ public class EntityStateController : MonoBehaviour, IEntityHit
     [Header("States")]
     [field: SerializeField] public EntityState_Move moveState {get ;private set;}
     [field: SerializeField] public EntityState_Hit hitState {get ;private set;}
+    [field: SerializeField] public EntityState_Attack AttackState {get ;private set;}
 
 
 
@@ -32,6 +33,9 @@ public class EntityStateController : MonoBehaviour, IEntityHit
 
     Coroutine runner;
     private bool hitAble= true;
+    [HideInInspector] public bool attacking = false; 
+
+    private float attackRange;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,6 +45,8 @@ public class EntityStateController : MonoBehaviour, IEntityHit
         hitMask = hitState.hitMask;
         hitForce = hitState.hitForce;
         hitDuration = hitState.hitDuration;
+        attackRange = AttackState.attackRange;
+        attacking = false; // we do not start off attacking
 
         ChangeState(moveState);
 
@@ -97,35 +103,42 @@ public class EntityStateController : MonoBehaviour, IEntityHit
 
     private IEnumerator PhysicsKnockbackRoutine(Vector3 direction, float force, float duration)
     {
-        ChangeState(hitState);
-        // 1. Disengage the NavMesh control
-        agent.enabled = false;
-        
-        // 2. Hand control over to the physics engine
-        rb.isKinematic = false;
-        
-        // Clear Y to avoid launching characters into space unexpectedly
-        direction.y = 0; 
-        rb.AddForce(direction.normalized * force, ForceMode.Impulse);
+        if(!attacking){
+            ChangeState(hitState);
+            // 1. Disengage the NavMesh control
+            agent.enabled = false;
+            
+            // 2. Hand control over to the physics engine
+            rb.isKinematic = false;
+            
+            // Clear Y to avoid launching characters into space unexpectedly
+            direction.y = 0; 
+            rb.AddForce(direction.normalized * force, ForceMode.Impulse);
 
-        // 3. Wait for the knockback timer to expire
-        yield return new WaitForSeconds(duration);
+            // 3. Wait for the knockback timer to expire
+            yield return new WaitForSeconds(duration);
 
-        // 4. Reset physics constraints and bring velocity back to zero
-        rb.linearVelocity = Vector3.zero;
-        yield return new WaitForEndOfFrame();
-        rb.isKinematic = true;
-        
+            // 4. Reset physics constraints and bring velocity back to zero
+            rb.linearVelocity = Vector3.zero;
+            yield return new WaitForEndOfFrame();
+            rb.isKinematic = true;
+            
 
-        // 5. Secure agent position on the path and reactivate pathfinding
-        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 2.0f, NavMesh.AllAreas))
-        {
-            agent.Warp(hit.position);
+            // 5. Secure agent position on the path and reactivate pathfinding
+            if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 2.0f, NavMesh.AllAreas))
+            {
+                agent.Warp(hit.position);
+            }
+            
+            agent.enabled = true;
+            ChangeState(moveState);
         }
-        
-        agent.enabled = true;
+        else
+        {
+            yield return new WaitForSeconds(duration); // just have some frames that they can't hit again
+        }
         hitAble = true;
-        ChangeState(moveState);
+        
         //rb.excludeLayers = 0;
     }
 }

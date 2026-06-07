@@ -15,7 +15,6 @@ public class AbilityState_Attack : AbilityState_Abs
 
 
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -66,7 +65,7 @@ public class AbilityState_Attack : AbilityState_Abs
         // Draw a debug ray in the Scene view to visualize it
         Debug.DrawRay(ray.origin, ray.direction * hitRange, Color.red, 1f);
 
-        if (Physics.Raycast(ray, out hit, hitRange, enemyMask))
+        if (Physics.Raycast(ray, out hit, hitRange, enemyMask, QueryTriggerInteraction.Collide))
         {
             if(hit.collider.gameObject.TryGetComponent<IEntityHit>(out IEntityHit hitInterface)){
                 hitInterface.Hit(view.position);

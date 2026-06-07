@@ -1152,6 +1152,7 @@ GameObject:
   - component: {fileID: 542023267686203306}
   - component: {fileID: 1208065374075241186}
   - component: {fileID: 3828369440778314584}
+  - component: {fileID: 727281662899043995}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -1254,3 +1255,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &727281662899043995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070053474541493822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cb01a1d8a25a24ba3ce3ee34ff4446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBody

@@ -1,0 +1,58 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class EntityState_Attack : EntityState_Abs
+{
+    [field: SerializeField] public float attackRange;
+    [SerializeField] private int attackDamage;
+
+    [SerializeField] private float windUp;
+    [SerializeField] private float windDown;
+
+    [SerializeField] private LayerMask hitMask;
+    [SerializeField] private LayerMask playerMask;
+
+    [SerializeField] GameObject target;
+
+    /////////////////////////////////// DO ENTER
+    public override void DoEnter()
+    {
+        StartCoroutine(Attack());
+    }
+    /////////////////////////////////// DO EXIT
+    public override void DoExit()
+    {   // When the state is over.
+        if(brain.attacking == true)
+        { // clean this up just in case
+            brain.attacking = false;
+        }
+    }
+    /////////////////////////////////// DO STATE
+    public override EntityState_Abs DoState()
+    {
+        return this;
+    }
+
+    IEnumerator Attack()
+    {
+        brain.attacking = true;
+        yield return new WaitForSeconds(windUp);
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        // Draw a debug ray in the Scene view to visualize it
+        Debug.DrawRay(ray.origin, ray.direction * attackRange, Color.red, 1f);
+
+        if (Physics.Raycast(ray, out hit, attackRange, hitMask)) 
+        { // hit mask so its stoped by shield
+            if((playerMask.value & (1 << hit.collider.gameObject.layer)) != 0 && 
+                hit.collider.gameObject.TryGetComponent<IPlayerHit>(out IPlayerHit hitInterface)){
+                hitInterface.Hit(attackDamage);
+            }
+        }
+        brain.attacking = false;
+        yield return new WaitForSeconds(windDown);
+        brain.ChangeState(brain.moveState);
+    }
+}
