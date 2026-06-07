@@ -746,6 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685270595609910249}
+  - component: {fileID: 5683983416875073836}
   - component: {fileID: 6049299962209969293}
   - component: {fileID: 5106918443711067749}
   - component: {fileID: 4028752467655627248}
@@ -781,6 +782,18 @@ Transform:
   - {fileID: 6377529388338507165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5683983416875073836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659617927075878084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed8d032a094ab1498fa3e78995120ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressionManager
 --- !u!114 &6049299962209969293
 MonoBehaviour:
   m_ObjectHideFlags: 0
