@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FlyingAI : MonoBehaviour
+public class FlyingAI : MonoBehaviour, IEntityHit
 {
 
     [Header("References")]
@@ -31,6 +31,8 @@ public class FlyingAI : MonoBehaviour
 
     private Transform currentWaypointTarget;
     private Transform[] waypoints;
+
+    private bool hit = false;
 
     private void Start()
     {
@@ -190,11 +192,16 @@ public class FlyingAI : MonoBehaviour
 
     private IEnumerator StateMachine()
     {
-        while (true)
+        while (!hit)
         {
             yield return StartCoroutine(CircleState(circleDuration));
             yield return StartCoroutine(AttackState(attackDuration));
         }
     }
 
+    public void Hit(Vector3 dir)
+    {
+        hit = true;
+        Destroy(gameObject);
+    }
 }

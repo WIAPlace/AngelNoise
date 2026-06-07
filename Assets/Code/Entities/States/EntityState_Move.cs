@@ -42,7 +42,7 @@ public class EntityState_Move : EntityState_Abs
                 // 3. Check if the dot product exceeds our threshold
                 if (dotProduct >= visionThreshold)
                 {
-                    Debug.Log("attacking");
+                    //Debug.Log("attacking");
                     return brain.AttackState;
                 }
             }
