@@ -13,11 +13,18 @@ public class EntityState_Attack : EntityState_Abs
     [SerializeField] protected LayerMask hitMask;
     [SerializeField] protected LayerMask playerMask;
 
-    [SerializeField] protected GameObject target;
+    protected GameObject target;
 
+    void Start()
+    {
+        target = ProgressionManager.Instance.GetPlayer();
+    }
+    
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
     {
+        
+
         StartCoroutine(Attack());
     }
     /////////////////////////////////// DO EXIT

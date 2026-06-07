@@ -5,9 +5,14 @@ using UnityEngine.AI;
 public class EntityState_Move : EntityState_Abs
 {
     private NavMeshAgent agent;
-    [SerializeField] private GameObject target;
+    private GameObject target;
     [Range(0f, 1f)] public float visionThreshold = 0.7f; // 0.7 is roughly a 45-degree angle cone (90 degrees total)
     float rotationSpeed;
+
+    void Start()
+    {
+        target = ProgressionManager.Instance.GetPlayer();
+    }
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
     {   // When the state begins.

@@ -794,6 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed8d032a094ab1498fa3e78995120ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionManager
+  player: {fileID: 2161740573915561880}
 --- !u!114 &6049299962209969293
 MonoBehaviour:
   m_ObjectHideFlags: 0

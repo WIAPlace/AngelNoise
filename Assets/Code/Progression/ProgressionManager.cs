@@ -18,6 +18,8 @@ public class ProgressionManager : MonoBehaviour
         Instance = this;
     }
 
+    [SerializeField]private GameObject player;
+
     public static LayerMask playerMask;
 
     public static event Action<int> KeyPickUpEvent; // 0 = red, 1 = blue, 2 = yellow 
@@ -37,5 +39,9 @@ public class ProgressionManager : MonoBehaviour
     public static void KeyPickedUp(int index)
     {   // send of the index to the door and all that
         KeyPickUpEvent?.Invoke(index);
+    }
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }

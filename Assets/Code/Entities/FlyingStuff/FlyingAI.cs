@@ -5,7 +5,7 @@ public class FlyingAI : MonoBehaviour, IEntityHit
 {
 
     [Header("References")]
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private WaypointHolder waypointHolder;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
@@ -44,7 +44,7 @@ public class FlyingAI : MonoBehaviour, IEntityHit
 
 
         if (waypoints == null || waypoints.Length == 0) return;
-
+        player = ProgressionManager.Instance.GetPlayer().transform;
 
         StartCoroutine(StateMachine());
     }
