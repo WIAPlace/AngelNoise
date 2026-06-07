@@ -26,12 +26,14 @@ public class EntityState_Move : EntityState_Abs
         if(agent.isOnNavMesh && target != null){
             agent.SetDestination(target.transform.position);
 
-            float distanceToTarget = agent.remainingDistance;
+            float distanceToTarget = (target.transform.position-transform.position).magnitude;
             Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
             directionToTarget.y = 0;
+            
 
             if(distanceToTarget != Mathf.Infinity && distanceToTarget <= agent.stoppingDistance)
             {   // if in swinging range
+                //Debug.Log(distanceToTarget);
                 if (agent.updateRotation)
                 {
                     agent.updateRotation = false;
@@ -43,6 +45,7 @@ public class EntityState_Move : EntityState_Abs
                 if (dotProduct >= visionThreshold)
                 {
                     //Debug.Log("attacking");
+                    //Debug.Log("MoveToAttack");
                     return brain.AttackState;
                 }
             }

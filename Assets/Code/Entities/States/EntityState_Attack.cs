@@ -5,15 +5,15 @@ using UnityEngine.AI;
 public class EntityState_Attack : EntityState_Abs
 {
     [field: SerializeField] public float attackRange;
-    [SerializeField] private int attackDamage;
+    [SerializeField] protected int attackDamage;
 
-    [SerializeField] private float windUp;
-    [SerializeField] private float windDown;
+    [SerializeField] protected float windUp;
+    [SerializeField] protected float windDown;
 
-    [SerializeField] private LayerMask hitMask;
-    [SerializeField] private LayerMask playerMask;
+    [SerializeField] protected LayerMask hitMask;
+    [SerializeField] protected LayerMask playerMask;
 
-    [SerializeField] GameObject target;
+    [SerializeField] protected GameObject target;
 
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
