@@ -354,7 +354,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2419
+  m_VersionIndex: 2422
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -473,7 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112931602854431532}
   - component: {fileID: 42031405091975164}
-  - component: {fileID: 1229749553870456593}
+  - component: {fileID: 4035780162032834983}
   m_Layer: 12
   m_Name: RedDoor
   m_TagString: Untagged
@@ -519,7 +519,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.36, y: 3.5509183, z: 8}
   m_Center: {x: 0, y: 0.68565047, z: 0}
---- !u!114 &1229749553870456593
+--- !u!114 &4035780162032834983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,13 +528,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2301661485282218739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a9251444a7a4cd45a8815aed2db6d59, type: 3}
+  m_Script: {fileID: 11500000, guid: b0239989d06a7bc42ac5496118f257a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::NewDoors
   doorAnim: {fileID: 8327689490088092157}
   areaToSpawn: {fileID: 0}
-  requiresKey: 1
-  reqRed: 1
+  requiresKey: 0
+  reqRed: 0
   reqBlue: 0
   reqYellow: 0
 --- !u!1 &5369903356335645899
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1723
+  m_VersionIndex: 1726
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
