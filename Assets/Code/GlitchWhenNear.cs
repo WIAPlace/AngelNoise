@@ -22,4 +22,9 @@ public class GlitchWhenNear : MonoBehaviour
             analogGlitch.ScanLineJitter = 0;
         }
     }
+
+    private void OnDestroy()
+    {
+        analogGlitch.ScanLineJitter = 0;
+    }
 }
