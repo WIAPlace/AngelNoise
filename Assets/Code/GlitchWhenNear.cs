@@ -25,6 +25,6 @@ public class GlitchWhenNear : MonoBehaviour
 
     private void OnDestroy()
     {
-        analogGlitch.ScanLineJitter = 0;
+        if(analogGlitch != null) analogGlitch.ScanLineJitter = 0;
     }
 }
