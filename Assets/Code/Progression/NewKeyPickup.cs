@@ -15,7 +15,7 @@ public class NewKeyPickup : MonoBehaviour
     {
         if((playerMask.value & (1 << other.gameObject.layer)) != 0)
         {
-            ProgressionManager.KeyPickedUp(keyCardIndex);
+            ProgressionManager.Instance.KeyPickedUp(keyCardIndex);
             Destroy(gameObject);
         }
     }

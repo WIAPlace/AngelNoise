@@ -19,6 +19,7 @@ public class ProgressionManager : MonoBehaviour
     }
 
     [SerializeField]private GameObject player;
+    [SerializeField] private GameObject[] UIEffects;
 
     public static LayerMask playerMask;
 
@@ -28,6 +29,10 @@ public class ProgressionManager : MonoBehaviour
     void OnEnable()
     {
         playerMask = 1 << gameObject.layer;
+        foreach(GameObject ui in UIEffects)
+        {
+            ui.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -36,9 +41,13 @@ public class ProgressionManager : MonoBehaviour
         
     }
 
-    public static void KeyPickedUp(int index)
+    public void KeyPickedUp(int index)
     {   // send of the index to the door and all that
         KeyPickUpEvent?.Invoke(index);
+
+        if(index < UIEffects.Length && UIEffects[index]!=null){
+            UIEffects[index].SetActive(true);
+        }
     }
     public GameObject GetPlayer()
     {
