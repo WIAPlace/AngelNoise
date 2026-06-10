@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class AngleToPlayer : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    private Transform player;
     private Vector3 targetPos;
     private Vector3 targetDir;
 
@@ -17,6 +17,7 @@ public class AngleToPlayer : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        player = ProgressionManager.Instance.GetPlayer().transform;
     }
 
     // Update is called once per frame
