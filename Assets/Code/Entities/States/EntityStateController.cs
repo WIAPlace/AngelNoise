@@ -6,7 +6,7 @@ public class EntityStateController : MonoBehaviour, IEntityHit
 {
     [field: SerializeField] public Rigidbody rb {get ;private set;}
     [field: SerializeField] public NavMeshAgent agent {get ;private set;}
-
+    [SerializeField,Tooltip("How many hits they can take")] private int health = 3;
 
     // States
     [Header("States")]
@@ -88,6 +88,12 @@ public class EntityStateController : MonoBehaviour, IEntityHit
             direction -= transform.position;
             dir = -direction;
             //rb.excludeLayers = hitMask;
+            health -= 1;
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
             ApplyPhysicsKnockback(dir,hitForce,hitDuration);
         }
     }

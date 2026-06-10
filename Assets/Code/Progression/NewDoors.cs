@@ -3,7 +3,7 @@ using UnityEngine;
 public class NewDoors : MonoBehaviour
 {
     public Animator doorAnim;
-    public GameObject areaToSpawn;
+    [SerializeField,Tooltip("Int relates to index of gameobject in spawn manager.\n 0 will spawn nothing.")]private int areaToSpawn;
 
     public bool requiresKey;
     public bool reqRed, reqBlue, reqYellow;
@@ -55,7 +55,7 @@ public class NewDoors : MonoBehaviour
             // doorAnim.SetTrigger("OpenDoor");
             doorAnim.SetBool("Open", true);
             // spawn shit
-            if(areaToSpawn != null) areaToSpawn.SetActive(true);
+            if(areaToSpawn > 0) SpawnManager.Instance.SpawnRoom(areaToSpawn);
         }
     }
 }
