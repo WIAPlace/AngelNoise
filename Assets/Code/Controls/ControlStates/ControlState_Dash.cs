@@ -12,6 +12,8 @@ public class ControlState_Dash : ControlState_Abs
     [SerializeField, Tooltip("Cool down between dashes")] private float dashCoolDown;
 
     [SerializeField] private LayerMask dashMask;
+    [SerializeField] private LayerMask playerMask;
+    [SerializeField] private LayerMask untouchedMask;
 
     private Vector3 dashDir;
     private Vector2 dashDirV2; // used to see the vector 2 that was put in at time of press
@@ -32,12 +34,16 @@ public class ControlState_Dash : ControlState_Abs
     private float currentDutch; // used so we don't have snaps when switching 
     private float baseFOV;
     
-
+    int playerIndex;
+    int dashIndex;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         baseFOV = cam.Lens.FieldOfView;
+
+        playerIndex = Mathf.RoundToInt(Mathf.Log(playerMask.value, 2));
+        dashIndex = Mathf.RoundToInt(Mathf.Log(untouchedMask.value, 2));
     }
 
     /////////////////////////////////// DO ENTER
@@ -74,7 +80,7 @@ public class ControlState_Dash : ControlState_Abs
         float elapsed = 0f;
 
         Vector3 dashTarget = dashDir * (dashDist / dashTime);
-
+        if ((playerMask.value & (1 << gameObject.layer)) != 0) gameObject.layer = dashIndex;
         
 
         while (elapsed < dashTime)
@@ -119,6 +125,9 @@ public class ControlState_Dash : ControlState_Abs
 
             yield return null;
         }
+        if ((untouchedMask.value & (1 << gameObject.layer)) != 0) gameObject.layer=playerIndex;
+        // change layer if it has been changed
+
         cam.Lens.Dutch = 0f;
         cam.Lens.FieldOfView = baseFOV;
         // start the timer for cool down.

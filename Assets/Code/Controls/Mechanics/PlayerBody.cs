@@ -15,7 +15,7 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
             Debug.Log("Death");
         }
     }
-
+    /*
     void OnTriggerEnter(Collider other)
     {
         if((projectileLayer.value & (1 << other.gameObject.layer)) != 0)
@@ -23,4 +23,5 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
             Hit(projectileDamage);
         }
     }
+    */
 }

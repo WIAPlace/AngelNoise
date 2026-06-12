@@ -851,6 +851,12 @@ MonoBehaviour:
   dashMask:
     serializedVersion: 2
     m_Bits: 2304
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  untouchedMask:
+    serializedVersion: 2
+    m_Bits: 8192
   cam: {fileID: 5250182183692370101}
   dutch: 5
   fovChange: 10
