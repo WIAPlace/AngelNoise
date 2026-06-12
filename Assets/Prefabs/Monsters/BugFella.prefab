@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4476055299881739935}
-  - component: {fileID: 1676896485488714981}
+  - component: {fileID: 1504807610758310755}
   - component: {fileID: 4742953556556336602}
   - component: {fileID: 6848303212625877172}
   - component: {fileID: 4423411221674614522}
   - component: {fileID: 7825809218032654298}
   - component: {fileID: 9042737964788764831}
   - component: {fileID: 498995673582542955}
-  - component: {fileID: 6033475252691746694}
+  - component: {fileID: 2930837634147809921}
   m_Layer: 12
   m_Name: BugFella
   m_TagString: Untagged
@@ -40,8 +40,8 @@ Transform:
   - {fileID: 8851592235775565294}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!136 &1676896485488714981
-CapsuleCollider:
+--- !u!65 &1504807610758310755
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -58,11 +58,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 2.323349, y: 1.4667377, z: 0.24342346}
+  m_Center: {x: 0.0790596, y: -0.23336911, z: -0.015129089}
 --- !u!54 &4742953556556336602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,6 +131,8 @@ MonoBehaviour:
   debugCurrentStateName: 
   debugPreviousStateName: 
   attacking: 0
+  spriteAnim: {fileID: 0}
+  angleToPlayer: {fileID: 0}
 --- !u!114 &7825809218032654298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,9 +185,12 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+  attackSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  angleToPlayer: {fileID: 0}
   forwardForce: 10
   upwardForce: 8
---- !u!114 &6033475252691746694
+--- !u!114 &2930837634147809921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,19 +199,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991031875527804272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829af8061de2cc44d997504feae5f259, type: 3}
+  m_Script: {fileID: 11500000, guid: 9640d53df5bafb24a941b15c4870bb91, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AngleToPlayer
-  player: {fileID: 0}
-  testIdles:
-  - {fileID: -405475982, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: 782660678, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: 1957408165, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: 1354342937, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: -2059011420, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: 1354342937, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: 1957408165, guid: f229cd34ae65efa49be8534889195321, type: 3}
-  - {fileID: 782660678, guid: f229cd34ae65efa49be8534889195321, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::AngleToPlayerAnim
   angle: 0
   lastIndex: 0
 --- !u!1 &7858249486517674743
@@ -222,6 +215,7 @@ GameObject:
   - component: {fileID: 8851592235775565294}
   - component: {fileID: 248778110942384988}
   - component: {fileID: 8207942223615752520}
+  - component: {fileID: 2742528691043034672}
   m_Layer: 12
   m_Name: SpriteBody
   m_TagString: Untagged
@@ -317,3 +311,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteBillboardLook
   target: {fileID: 0}
   canLookVertically: 1
+--- !u!95 &2742528691043034672
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858249486517674743}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2d9fc44a6281524e88499f80f7560e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

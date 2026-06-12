@@ -237,6 +237,8 @@ MonoBehaviour:
   debugCurrentStateName: 
   debugPreviousStateName: 
   attacking: 0
+  spriteAnim: {fileID: 0}
+  angleToPlayer: {fileID: 0}
 --- !u!114 &5002873447581330237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +291,9 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+  attackSprite: {fileID: 1721960190, guid: 2b3c7085bffd90b4087eb152f28ad7f8, type: 3}
+  spriteRenderer: {fileID: 1796274673826524647}
+  angleToPlayer: {fileID: 1574506166604652944}
 --- !u!114 &1574506166604652944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,3 +317,4 @@ MonoBehaviour:
   - {fileID: 1447299648, guid: 2b3c7085bffd90b4087eb152f28ad7f8, type: 3}
   angle: 0
   lastIndex: 0
+  walking: 0
