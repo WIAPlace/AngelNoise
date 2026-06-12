@@ -1174,11 +1174,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cb01a1d8a25a24ba3ce3ee34ff4446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBody
-  health: 25
+  health: 36
   projectileLayer:
     serializedVersion: 2
     m_Bits: 2048
   projectileDamage: 1
+  banding: {fileID: 3096678400475027003}
+  startingValue: 36
+  minValue: 0
+  regenTime: 1
+  RegenStopTime: 3
 --- !u!1001 &910400148402036108
 PrefabInstance:
   m_ObjectHideFlags: 0

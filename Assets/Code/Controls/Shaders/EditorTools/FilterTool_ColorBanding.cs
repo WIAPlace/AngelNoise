@@ -12,5 +12,12 @@ public class FilterTool_ColorBanding : FilterTool_Abs
         fullScreenMat.SetFloat(ColorStepID,colorSteps);
     }
 
+    public void ChangColorStep(int stepChange)
+    {
+        colorSteps -= stepChange;
+        if(colorSteps <= 0) colorSteps = 0;
+        fullScreenMat.SetFloat(ColorStepID,colorSteps);
+    }
+
     
 }
