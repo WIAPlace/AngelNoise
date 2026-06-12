@@ -6,6 +6,7 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
     [SerializeField] private int health;
     [SerializeField] private LayerMask projectileLayer;
     [SerializeField] private int projectileDamage;
+    [SerializeField] private FilterTool_ColorBanding banding;
     
     
     public bool CheckActive()
@@ -15,7 +16,7 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
 
     public void Hit(int damage)
     {
-        Debug.Log("Hit For "+ damage+" Damage" );
+        //Debug.Log("Hit For "+ damage+" Damage" );
         health -= damage;
         if(health <= 0)
         { // Death
