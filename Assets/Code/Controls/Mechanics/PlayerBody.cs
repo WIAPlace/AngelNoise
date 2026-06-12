@@ -8,6 +8,8 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
     [SerializeField] private int health;
     [SerializeField] private LayerMask projectileLayer;
     [SerializeField] private int projectileDamage;
+    [SerializeField] private AudioSource ears;
+    [SerializeField] private SoundEffectSO hitSO;
 
     [Header("Health to ColorBanding")]
     [SerializeField] private FilterTool_ColorBanding banding;
@@ -37,7 +39,10 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
 
         
         
-        if(damage>0) justHit = true;
+        if(damage>0){ 
+            justHit = true;
+            hitSO.Play(ears);
+        }
         banding.ChangColorStep(damage);
         
         if(health <= 0)

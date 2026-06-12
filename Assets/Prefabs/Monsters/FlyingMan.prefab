@@ -82,6 +82,7 @@ MonoBehaviour:
   shootInterval: 1
   projectileSpeed: 60
   angleToShootAtPlayer: 0.1
+  shootSO: {fileID: 11400000, guid: f3746fb6e63bf374086150c8e2a3181d, type: 2}
 --- !u!82 &3871408734783295836
 AudioSource:
   m_ObjectHideFlags: 0
@@ -102,9 +103,9 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 1.07
   MinDistance: 1
-  MaxDistance: 2
+  MaxDistance: 1.3384647
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

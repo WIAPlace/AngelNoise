@@ -52,6 +52,7 @@ public class EntityState_AttackBug : EntityState_Attack
         yield return new WaitForSeconds(windUp);
         ResetAnims();
         if(brain.spriteAnim!=null)brain.spriteAnim.SetTrigger("Attack");
+        attackSO.Play(brain.audioSource);
         
         LeapAtTarget();
 

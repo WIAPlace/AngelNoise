@@ -28,6 +28,9 @@ public class FlyingAI : MonoBehaviour, IEntityHit
     [SerializeField] private float projectileSpeed = 60f;
     [SerializeField] private float angleToShootAtPlayer = 0.1f;
 
+    private AudioSource audioSource;
+    [SerializeField] private SoundEffectSO shootSO;
+
 
     private Transform currentWaypointTarget;
     private Transform[] waypoints;
@@ -45,6 +48,7 @@ public class FlyingAI : MonoBehaviour, IEntityHit
 
         if (waypoints == null || waypoints.Length == 0) return;
         player = ProgressionManager.Instance.GetPlayer().transform;
+        audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(StateMachine());
     }
@@ -122,6 +126,7 @@ public class FlyingAI : MonoBehaviour, IEntityHit
     private void FireProjectile()
     {
         if (!projectilePrefab) return;
+        shootSO.Play(audioSource);
         var spawn = projectileSpawnPoint ? projectileSpawnPoint : transform;
 
 

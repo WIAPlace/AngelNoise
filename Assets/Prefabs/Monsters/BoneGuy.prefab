@@ -240,6 +240,7 @@ MonoBehaviour:
   attacking: 0
   spriteAnim: {fileID: 0}
   angleToPlayer: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &5002873447581330237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +271,7 @@ MonoBehaviour:
     m_Bits: 2688
   <hitForce>k__BackingField: 2
   <hitDuration>k__BackingField: 1
+  hitSO: {fileID: 11400000, guid: 2bb397db35cbb8141b5dd55541ce1728, type: 2}
 --- !u!114 &6348883804751762515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +297,7 @@ MonoBehaviour:
   attackSprite: {fileID: 1721960190, guid: 2b3c7085bffd90b4087eb152f28ad7f8, type: 3}
   spriteRenderer: {fileID: 1796274673826524647}
   angleToPlayer: {fileID: 1574506166604652944}
+  attackSO: {fileID: 11400000, guid: 793d87b78656c8a45b2b872ddf1bf6df, type: 2}
 --- !u!114 &1574506166604652944
 MonoBehaviour:
   m_ObjectHideFlags: 0

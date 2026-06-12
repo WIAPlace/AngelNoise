@@ -37,6 +37,8 @@ public class ControlState_Dash : ControlState_Abs
     private float currentDutch; // used so we don't have snaps when switching 
     private float baseFOV;
 
+    [SerializeField] private SoundEffectSO dashEffect;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,6 +63,7 @@ public class ControlState_Dash : ControlState_Abs
         dashCo = StartCoroutine(Dash());
         controller.excludeLayers = dashMask;
         brain.dashing = true; // not able to fire
+        dashEffect.Play(brain.ears);
     }
     /////////////////////////////////// DO EXIT
     public override void DoExit()
