@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,11 @@ public class EntityState_Attack : EntityState_Abs
     [SerializeField] protected LayerMask hitMask;
     [SerializeField] protected LayerMask playerMask;
 
+
+    [Header("Bone Guy Only")]
+    [SerializeField] private Sprite attackSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private AngleToPlayer angleToPlayer;
     protected GameObject target;
 
     void Start()
@@ -23,13 +29,14 @@ public class EntityState_Attack : EntityState_Abs
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
     {
-        
+        angleToPlayer.walking = false;
 
         StartCoroutine(Attack());
     }
     /////////////////////////////////// DO EXIT
     public override void DoExit()
     {   // When the state is over.
+        angleToPlayer.walking = true;
         if(brain.attacking == true)
         { // clean this up just in case
             brain.attacking = false;
@@ -47,6 +54,7 @@ public class EntityState_Attack : EntityState_Abs
         yield return new WaitForSeconds(windUp);
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
+        spriteRenderer.sprite = attackSprite;
 
         // Draw a debug ray in the Scene view to visualize it
         Debug.DrawRay(ray.origin, ray.direction * attackRange, Color.red, 1f);

@@ -32,4 +32,13 @@ public abstract class EntityState_Abs : MonoBehaviour
         brain = GetComponent<EntityStateController>();
     }
 
+    protected void ResetAnims()
+    {
+        if (brain.spriteAnim != null)
+        {
+            brain.spriteAnim.ResetTrigger("Walk");
+            brain.spriteAnim.ResetTrigger("Attack");
+        }
+    }
+
 }

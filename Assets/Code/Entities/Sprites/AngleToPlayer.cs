@@ -13,9 +13,11 @@ public class AngleToPlayer : MonoBehaviour
 
     public float angle;
     public int lastIndex;
+    public bool walking;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        walking = true;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         player = ProgressionManager.Instance.GetPlayer().transform;
     }
@@ -40,7 +42,7 @@ public class AngleToPlayer : MonoBehaviour
 
         lastIndex = GetIndex(angle);
 
-        spriteRenderer.sprite = testIdles[lastIndex]; // will be swaped with more sofisticated animation blend tree when more sprites are avalible
+        if(walking) SetWalk();
     }
 
     private int GetIndex(float angle)
@@ -69,5 +71,9 @@ public class AngleToPlayer : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, targetPos);
+    }
+    public void SetWalk()
+    {
+        spriteRenderer.sprite = testIdles[lastIndex]; // will be swaped with more sofisticated animation blend tree when more sprites are avalible
     }
 }

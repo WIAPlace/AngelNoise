@@ -11,7 +11,9 @@ public class EntityState_AttackBug : EntityState_Attack
     public override void DoEnter()
     {
         //Debug.Log("attackstate Entered");
+        
         rb=brain.rb;
+        
         if (brain.agent.isActiveAndEnabled)
         {
             brain.agent.enabled = false;
@@ -48,6 +50,9 @@ public class EntityState_AttackBug : EntityState_Attack
     {
         brain.attacking = true;
         yield return new WaitForSeconds(windUp);
+        ResetAnims();
+        if(brain.spriteAnim!=null)brain.spriteAnim.SetTrigger("Attack");
+        
         LeapAtTarget();
 
         yield return new WaitForSeconds(windDown);

@@ -37,15 +37,16 @@ public class EntityStateController : MonoBehaviour, IEntityHit
 
     private float attackRange;
 
-    private Animator spriteAnim;
-    private AngleToPlayer angleToPlayer;
+    //[HideInInspector] 
+    public Animator spriteAnim;
+    public AngleToPlayerAnim angleToPlayer;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteAnim = GetComponentInChildren<Animator>();
-        angleToPlayer = GetComponent<AngleToPlayer>();
+        angleToPlayer = GetComponent<AngleToPlayerAnim>();
         // Putting these in seprate script just so this one doesnt get too busy.
         hitMask = hitState.hitMask;
         hitForce = hitState.hitForce;
@@ -60,6 +61,7 @@ public class EntityStateController : MonoBehaviour, IEntityHit
     // Update is called once per frame
     void Update()
     {
+        
        if (currentState != null)
         {
             EntityState_Abs tempCheck = currentState.DoState();
