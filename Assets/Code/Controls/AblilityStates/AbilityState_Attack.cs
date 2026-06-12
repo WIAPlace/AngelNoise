@@ -13,6 +13,9 @@ public class AbilityState_Attack : AbilityState_Abs
     [SerializeField] LayerMask enemyMask;
     [SerializeField] private float hitRange;
 
+    [SerializeField] private SoundEffectSO attackSO;
+    [SerializeField] private float secondSwingTime;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +39,8 @@ public class AbilityState_Attack : AbilityState_Abs
         brain.anim.SetTrigger(SwingHash);
         HitZone();
         hitBox.SetActive(true);
+        attackSO.Play(brain.ears);
+        StartCoroutine(SecondSwing());
 
         // When the state begins.
     }
@@ -71,5 +76,10 @@ public class AbilityState_Attack : AbilityState_Abs
                 hitInterface.Hit(view.position);
             }
         }
+    }
+    private IEnumerator SecondSwing()
+    {
+        yield return new WaitForSeconds(secondSwingTime);
+        attackSO.Play(brain.ears);
     }
 }

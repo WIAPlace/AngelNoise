@@ -38,6 +38,8 @@ public class Controls_Brain : MonoBehaviour
     [HideInInspector] public bool dashing = false;
     public Coroutine dashTimer;
 
+    [field: SerializeField] public AudioSource ears;
+
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

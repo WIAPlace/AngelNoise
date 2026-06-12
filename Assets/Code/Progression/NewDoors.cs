@@ -11,9 +11,12 @@ public class NewDoors : MonoBehaviour
     private bool openAble;
     private bool[] keyAndGate;
     private LayerMask playerMask;
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         if (requiresKey)
         {
             ProgressionManager.KeyPickUpEvent +=OnKeyPickup;
@@ -52,6 +55,8 @@ public class NewDoors : MonoBehaviour
     {
         if(openAble && (playerMask.value & (1 << other.gameObject.layer)) != 0)
         {
+            openAble = false;
+            ProgressionManager.Instance.doorEffect.Play(audioSource);
             // doorAnim.SetTrigger("OpenDoor");
             doorAnim.SetBool("Open", true);
             // spawn shit

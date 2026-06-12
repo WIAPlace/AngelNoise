@@ -13,7 +13,7 @@ public class AbilityState_Throw : AbilityState_Abs
     [SerializeField] private Transform throwPoint;
 
     [SerializeField] private CinemachineImpulseSource impSour;
-    
+    [SerializeField] private SoundEffectSO throwSO;
 
     [Header("Values")]
     [SerializeField] private float throwForce;
@@ -48,6 +48,7 @@ public class AbilityState_Throw : AbilityState_Abs
 
         // game feel for throwing something
         impSour.GenerateImpulse();
+        throwSO.Play(brain.ears);
 
         // change state to idle
         brain.ChangeState(brain.idleState);

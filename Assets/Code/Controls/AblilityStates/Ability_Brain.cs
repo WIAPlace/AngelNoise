@@ -45,6 +45,7 @@ public class Ability_Brain : MonoBehaviour
 
 
     [HideInInspector] public bool holdingSword = true; // whether or not player is holding the sword at any current moment
+    [HideInInspector] public AudioSource ears;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,9 +53,11 @@ public class Ability_Brain : MonoBehaviour
         //Debug.Log(cinCam);
         //Debug.Log(cinCam.Lens.FieldOfView);
         //set up
+        
         input = controls.input;
         playerView = controls.playerView;
         playerBody = controls.playerBody;
+        ears = controls.ears;
 
         input.AttackEvent += HandleAttack;
         input.BlockEvent += HandleBlock;

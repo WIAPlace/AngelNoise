@@ -21,6 +21,9 @@ public class EntityState_Attack : EntityState_Abs
     [SerializeField] private AngleToPlayer angleToPlayer;
     protected GameObject target;
 
+    [Header ("Any")]
+    [SerializeField] protected SoundEffectSO attackSO;
+
     void Start()
     {
         target = ProgressionManager.Instance.GetPlayer();
@@ -55,6 +58,7 @@ public class EntityState_Attack : EntityState_Abs
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
         spriteRenderer.sprite = attackSprite;
+        attackSO.Play(brain.audioSource);
 
         // Draw a debug ray in the Scene view to visualize it
         Debug.DrawRay(ray.origin, ray.direction * attackRange, Color.red, 1f);

@@ -20,6 +20,7 @@ public class ProgressionManager : MonoBehaviour
 
     [SerializeField]private GameObject player;
     [SerializeField] private GameObject[] UIEffects;
+    [field: SerializeField] public SoundEffectSO doorEffect;
 
     public static LayerMask playerMask;
 

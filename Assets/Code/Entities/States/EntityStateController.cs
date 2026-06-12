@@ -41,12 +41,15 @@ public class EntityStateController : MonoBehaviour, IEntityHit
     public Animator spriteAnim;
     public AngleToPlayerAnim angleToPlayer;
 
+    [HideInInspector] public AudioSource audioSource;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         spriteAnim = GetComponentInChildren<Animator>();
         angleToPlayer = GetComponent<AngleToPlayerAnim>();
+        audioSource = GetComponent<AudioSource>();
         // Putting these in seprate script just so this one doesnt get too busy.
         hitMask = hitState.hitMask;
         hitForce = hitState.hitForce;
@@ -91,6 +94,7 @@ public class EntityStateController : MonoBehaviour, IEntityHit
     public void Hit(Vector3 direction)
     {// push entity in direction
         if(hitAble){ // stops from repededly being hit.
+            hitState.hitSO.Play(audioSource);
             hitAble = false; 
             direction -= transform.position;
             dir = -direction;
