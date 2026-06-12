@@ -16,11 +16,11 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if((projectileLayer.value & (1 << collision.gameObject.layer)) != 0)
+        if((projectileLayer.value & (1 << other.gameObject.layer)) != 0)
         {
-            
+            Hit(projectileDamage);
         }
     }
 }

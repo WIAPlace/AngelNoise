@@ -5,9 +5,9 @@ using UnityEngine;
 public class SwordThrowStop : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private LayerMask stoppingMask;
-    [SerializeField] private LayerMask playerMask;
-    [SerializeField] private LayerMask boundsMask;
+    [SerializeField] public LayerMask stoppingMask;
+    [SerializeField] public LayerMask playerMask;
+    [SerializeField] public LayerMask boundsMask;
 
     [Header("Collision Detection")]
     [SerializeField] private float swordLength;
@@ -16,15 +16,10 @@ public class SwordThrowStop : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
 
     float maxDistance = 5f;
-    
-
     private bool frozen = false;
+    [SerializeField] private GameObject parent;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+
     void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(collision.gameObject);
@@ -51,6 +46,15 @@ public class SwordThrowStop : MonoBehaviour
             GlobalEventManager.TriggerToobEvent();
         }
     }
+
+    
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+    
 
     // Update is called once per frame
     void Update()

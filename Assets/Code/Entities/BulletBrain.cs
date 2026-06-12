@@ -66,6 +66,29 @@ public class BulletBrain : MonoBehaviour
         }
 
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if ((weaponMask.value & (1 << other.gameObject.layer)) != 0)
+        {
+            //Debug.Log("Weapon");
+            transform.forward = other.transform.forward;
+            rb.linearVelocity = Vector3.zero;
+            rb.linearVelocity = transform.forward * bulletSpeed*2;
+            return;
+        }
+        //else
+        if ((hitMask.value & (1 << other.gameObject.layer)) != 0)
+        { // check if it is of a layer that it can damage / effect
+            
+            //return;   
+        }
+        if ((levelMask.value & (1 << other.gameObject.layer)) != 0)
+        { //terminates self if hits the level geometry
+            //Debug.Log("Destroy");
+            Destroy(gameObject); 
+            return;
+        }
+    }
 
 
 }
