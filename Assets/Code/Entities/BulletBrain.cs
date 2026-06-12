@@ -37,6 +37,7 @@ public class BulletBrain : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log(collision.gameObject.name);
         if ((weaponMask.value & (1 << collision.gameObject.layer)) != 0)
         {
             //Debug.Log("Weapon");
@@ -65,6 +66,7 @@ public class BulletBrain : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        //Debug.Log(other.name);
         if ((levelMask.value & (1 << other.gameObject.layer)) != 0)
         { 
             Destroy(gameObject);
@@ -76,8 +78,11 @@ public class BulletBrain : MonoBehaviour
         if ((hitMask.value & (1 << other.gameObject.layer)) != 0)
         {
             if(other.gameObject.TryGetComponent<IPlayerHit>(out IPlayerHit playerHit)){
-                playerHit.Hit(1);
-                Destroy(gameObject); 
+                if(playerHit.CheckActive()){
+                    //Debug.Log(other.name);
+                    playerHit.Hit(1);
+                    Destroy(gameObject); 
+                }
                 return;
             }
         }

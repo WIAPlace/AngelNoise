@@ -6,6 +6,13 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
     [SerializeField] private int health;
     [SerializeField] private LayerMask projectileLayer;
     [SerializeField] private int projectileDamage;
+    
+    
+    public bool CheckActive()
+    {
+        return enabled;
+    }
+
     public void Hit(int damage)
     {
         Debug.Log("Hit For "+ damage+" Damage" );

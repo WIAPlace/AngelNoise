@@ -102,7 +102,7 @@ MonoBehaviour:
     m_Bits: 4224
   levelMask:
     serializedVersion: 2
-    m_Bits: 8119
+    m_Bits: 7991
   weaponMask:
     serializedVersion: 2
     m_Bits: 512
