@@ -37,10 +37,15 @@ public class EntityStateController : MonoBehaviour, IEntityHit
 
     private float attackRange;
 
+    private Animator spriteAnim;
+    private AngleToPlayer angleToPlayer;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spriteAnim = GetComponentInChildren<Animator>();
+        angleToPlayer = GetComponent<AngleToPlayer>();
         // Putting these in seprate script just so this one doesnt get too busy.
         hitMask = hitState.hitMask;
         hitForce = hitState.hitForce;

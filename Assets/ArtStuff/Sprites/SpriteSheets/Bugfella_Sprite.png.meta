@@ -1,0 +1,810 @@
+fileFormatVersion: 2
+guid: efe9eac72d6132a408fba381969e3f47
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bugfella_Ide_Full
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1213
+        width: 227
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669de19cf6b20d24581ff7b2f68bba93
+      internalID: -1698910009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Idle_Gibbous
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1209
+        width: 239
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503cb86820a69b343a2ef79ecb2a52d6
+      internalID: -1927410360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Idle_Half
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1206
+        width: 217
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029c92581ac76da4d83ab084228e3835
+      internalID: 931092514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Idle_Cresent
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1205
+        width: 226
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9cf0b63c8be2b4193c9ad4dd35450c
+      internalID: -773761854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Idle_New
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1203
+        width: 221
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08dce7ae0772a4240a02fb6c3fcd89ea
+      internalID: 1158346659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Full1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1047
+        width: 238
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11cd4f20f5517d94cb2b0150e5206863
+      internalID: -2049086672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Full2
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1042
+        width: 230
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a8b190af3ef9b459fdd79700ff7a2e
+      internalID: 916995483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Full3
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1044
+        width: 230
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ad50c4cb3352c49aa8bb5f68c2796f
+      internalID: -944928073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Full4
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 1041
+        width: 243
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4aff28262f758418033b1cc0e0ac38
+      internalID: -347882408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Gibbous1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 901
+        width: 245
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eace6fa170ba24479357ca27c7a14d4
+      internalID: 1919130291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Gibbous2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 903
+        width: 227
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946c07ae732606443b1cfa7e806a0b14
+      internalID: -1902429923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Gibbous3
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 905
+        width: 236
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072a8087fff0fcf4cbe9280b9f37c2a5
+      internalID: 317718090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Gibbous4
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 902
+        width: 250
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c38a52a9293ee45af0b212326cd3a8
+      internalID: -1583385906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Half1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 731
+        width: 228
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f43e1fc05430f48aea5408e8596a55
+      internalID: -1735708511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Half2
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 721
+        width: 223
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4b1567843641c4cb263c22d6dd8a47
+      internalID: -1346723764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Half3
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 724
+        width: 216
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1780d6a424a11e64b8c9c00d39a600d6
+      internalID: -1155097205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Half4
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 731
+        width: 225
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e2836aec78a4a649807458d27a29e17
+      internalID: 120136140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Cresent1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 572
+        width: 236
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc6a5d5ff7be684ba2668a73c9f635e
+      internalID: 341393006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Cresent2
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 568
+        width: 239
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743352e0cfde9e341ade10a11f786505
+      internalID: -41922013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Cresent3
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 567
+        width: 238
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f5948efd645774b9d23b74dace040a
+      internalID: 1190396113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_Cresent4
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 567
+        width: 233
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06abb5b8ba851f048b0c4de2b7855996
+      internalID: 649161072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_New1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 397
+        width: 232
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2654b140af4fe0479a6d7448119ee89
+      internalID: -1975514291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_New2
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 392
+        width: 223
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66e7d7334dbd154dbdede23776c73d1
+      internalID: 942894980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_New3
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 388
+        width: 224
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f416da5b333a876459ea3512edd84c2d
+      internalID: 138097535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Walk_New4
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 390
+        width: 237
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8163cc6415ae0146950a870f79d43c8
+      internalID: -1159333225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Attack1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 63
+        width: 224
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54b62aac56c8bd4eba2eea5627fa2b9
+      internalID: 1781036323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Attack2
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 60
+        width: 209
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10114b785c97f6548bafe429308a3b7e
+      internalID: -1678753581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Attack3
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 49
+        width: 224
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e7fe103eadbf54fbbbf210729a85c6
+      internalID: 738688044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Attack4
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 55
+        width: 212
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e006d638390ee6a459c4e1af5d2ddd37
+      internalID: 704354993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bugfella_Attack5
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 66
+        width: 224
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84409324780ff074d919b4be157171e3
+      internalID: 728321591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a8b14ad19a9e9e346b506d122755ba99
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bugfella_Attack1: 1781036323
+      Bugfella_Attack2: -1678753581
+      Bugfella_Attack3: 738688044
+      Bugfella_Attack4: 704354993
+      Bugfella_Attack5: 728321591
+      Bugfella_Ide_Full: -1698910009
+      Bugfella_Idle_Cresent: -773761854
+      Bugfella_Idle_Gibbous: -1927410360
+      Bugfella_Idle_Half: 931092514
+      Bugfella_Idle_New: 1158346659
+      Bugfella_Walk_Cresent1: 341393006
+      Bugfella_Walk_Cresent2: -41922013
+      Bugfella_Walk_Cresent3: 1190396113
+      Bugfella_Walk_Cresent4: 649161072
+      Bugfella_Walk_Full1: -2049086672
+      Bugfella_Walk_Full2: 916995483
+      Bugfella_Walk_Full3: -944928073
+      Bugfella_Walk_Full4: -347882408
+      Bugfella_Walk_Gibbous1: 1919130291
+      Bugfella_Walk_Gibbous2: -1902429923
+      Bugfella_Walk_Gibbous3: 317718090
+      Bugfella_Walk_Gibbous4: -1583385906
+      Bugfella_Walk_Half1: -1735708511
+      Bugfella_Walk_Half2: -1346723764
+      Bugfella_Walk_Half3: -1155097205
+      Bugfella_Walk_Half4: 120136140
+      Bugfella_Walk_New1: -1975514291
+      Bugfella_Walk_New2: 942894980
+      Bugfella_Walk_New3: 138097535
+      Bugfella_Walk_New4: -1159333225
+      _Walk_Half1: -1346723764
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

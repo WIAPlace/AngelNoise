@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6466481358443746914}
-  - component: {fileID: 6828757619769919031}
+  - component: {fileID: 7579643606699120817}
   - component: {fileID: 4781942670212090666}
   - component: {fileID: 2922279650022322051}
   - component: {fileID: 9037215699337328720}
@@ -146,8 +146,8 @@ Transform:
   - {fileID: 8823295250197243895}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!136 &6828757619769919031
-CapsuleCollider:
+--- !u!65 &7579643606699120817
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,11 +164,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 2.2999272, y: 2.9288397, z: 0.4104004}
+  m_Center: {x: 0.051959753, y: 0.6779928, z: -0.022491455}
 --- !u!54 &4781942670212090666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -303,7 +301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829af8061de2cc44d997504feae5f259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AngleToPlayer
-  player: {fileID: 0}
   testIdles:
   - {fileID: -1843832293, guid: 2b3c7085bffd90b4087eb152f28ad7f8, type: 3}
   - {fileID: 1447299648, guid: 2b3c7085bffd90b4087eb152f28ad7f8, type: 3}

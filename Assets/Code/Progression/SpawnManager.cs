@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     {
         foreach(GameObject room in roomSpawns)
         {
-            room.SetActive(false);
+            if(room!=null)room.SetActive(false);
         }
     }
 
