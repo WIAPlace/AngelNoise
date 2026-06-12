@@ -6,16 +6,24 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
     [SerializeField] private int health;
     [SerializeField] private LayerMask projectileLayer;
     [SerializeField] private int projectileDamage;
+    [SerializeField] private FilterTool_ColorBanding banding;
+    
+    
+    public bool CheckActive()
+    {
+        return enabled;
+    }
+
     public void Hit(int damage)
     {
-        Debug.Log("Hit For "+ damage+" Damage" );
+        //Debug.Log("Hit For "+ damage+" Damage" );
         health -= damage;
         if(health <= 0)
         { // Death
             Debug.Log("Death");
         }
     }
-
+    /*
     void OnTriggerEnter(Collider other)
     {
         if((projectileLayer.value & (1 << other.gameObject.layer)) != 0)
@@ -23,4 +31,5 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
             Hit(projectileDamage);
         }
     }
+    */
 }

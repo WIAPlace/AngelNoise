@@ -12,6 +12,11 @@ public class ControlState_Dash : ControlState_Abs
     [SerializeField, Tooltip("Cool down between dashes")] private float dashCoolDown;
 
     [SerializeField] private LayerMask dashMask;
+    [SerializeField] private LayerMask usualMask;
+    //[SerializeField] private LayerMask playerMask;
+    //[SerializeField] private LayerMask untouchedMask;
+    //[SerializeField] private GameObject body;
+    [SerializeField] private PlayerBody body;
 
     private Vector3 dashDir;
     private Vector2 dashDirV2; // used to see the vector 2 that was put in at time of press
@@ -31,13 +36,14 @@ public class ControlState_Dash : ControlState_Abs
     private float splitTime; // variable for when the switch will happen
     private float currentDutch; // used so we don't have snaps when switching 
     private float baseFOV;
-    
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         baseFOV = cam.Lens.FieldOfView;
+
+        //playerIndex = Mathf.RoundToInt(Mathf.Log(playerMask.value, 2));
+        //dashIndex = Mathf.RoundToInt(Mathf.Log(untouchedMask.value, 2));
     }
 
     /////////////////////////////////// DO ENTER
@@ -62,6 +68,7 @@ public class ControlState_Dash : ControlState_Abs
         brain.dashing = false; // able to fire
         currentDashVelocity = Vector3.zero; // set velocity to 0
         controller.excludeLayers = 0;
+        controller.excludeLayers = usualMask;
         //brain.StopCo(dashCo);
     }
     /////////////////////////////////// DO STATE
@@ -74,7 +81,8 @@ public class ControlState_Dash : ControlState_Abs
         float elapsed = 0f;
 
         Vector3 dashTarget = dashDir * (dashDist / dashTime);
-
+        //if ((playerMask.value & (1 << body.gameObject.layer)) != 0) body.gameObject.layer = dashIndex;
+        body.enabled = false;
         
 
         while (elapsed < dashTime)
@@ -119,6 +127,9 @@ public class ControlState_Dash : ControlState_Abs
 
             yield return null;
         }
+        //if ((untouchedMask.value & (1 << body.gameObject.layer)) != 0) body.gameObject.layer=playerIndex;
+        // change layer if it has been changed
+        body.enabled = true;
         cam.Lens.Dutch = 0f;
         cam.Lens.FieldOfView = baseFOV;
         // start the timer for cool down.

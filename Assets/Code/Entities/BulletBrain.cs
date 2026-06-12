@@ -11,6 +11,7 @@ public class BulletBrain : MonoBehaviour
     [SerializeField] private LayerMask worldMask;
  
     [SerializeField] private float bulletSpeed;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +37,7 @@ public class BulletBrain : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log(collision.gameObject.name);
         if ((weaponMask.value & (1 << collision.gameObject.layer)) != 0)
         {
             //Debug.Log("Weapon");
@@ -47,7 +49,11 @@ public class BulletBrain : MonoBehaviour
         //else
         if ((hitMask.value & (1 << collision.gameObject.layer)) != 0)
         { // check if it is of a layer that it can damage / effect
-            
+            if(collision.gameObject.TryGetComponent<IEntityHit>(out IEntityHit entityHit)){
+                entityHit.Hit(transform.forward);
+                Destroy(gameObject); 
+                return;
+            }
             //return;   
         }
         if ((levelMask.value & (1 << collision.gameObject.layer)) != 0)
@@ -60,6 +66,7 @@ public class BulletBrain : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        //Debug.Log(other.name);
         if ((levelMask.value & (1 << other.gameObject.layer)) != 0)
         { 
             Destroy(gameObject);
@@ -68,27 +75,17 @@ public class BulletBrain : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if ((weaponMask.value & (1 << other.gameObject.layer)) != 0)
-        {
-            //Debug.Log("Weapon");
-            transform.forward = other.transform.forward;
-            rb.linearVelocity = Vector3.zero;
-            rb.linearVelocity = transform.forward * bulletSpeed*2;
-            return;
-        }
-        //else
         if ((hitMask.value & (1 << other.gameObject.layer)) != 0)
-        { // check if it is of a layer that it can damage / effect
-            
-            //return;   
-        }
-        if ((levelMask.value & (1 << other.gameObject.layer)) != 0)
-        { //terminates self if hits the level geometry
-            //Debug.Log("Destroy");
-            Destroy(gameObject); 
-            return;
+        {
+            if(other.gameObject.TryGetComponent<IPlayerHit>(out IPlayerHit playerHit)){
+                if(playerHit.CheckActive()){
+                    //Debug.Log(other.name);
+                    playerHit.Hit(1);
+                    Destroy(gameObject); 
+                }
+                return;
+            }
         }
     }
-
 
 }

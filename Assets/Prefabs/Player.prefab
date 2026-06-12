@@ -193,7 +193,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -850,7 +850,11 @@ MonoBehaviour:
   dashCoolDown: 0.1
   dashMask:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 6400
+  usualMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  body: {fileID: 727281662899043995}
   cam: {fileID: 5250182183692370101}
   dutch: 5
   fovChange: 10

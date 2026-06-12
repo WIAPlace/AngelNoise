@@ -51,7 +51,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -99,10 +99,10 @@ MonoBehaviour:
   rb: {fileID: 2553961128655115544}
   hitMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 4224
   levelMask:
     serializedVersion: 2
-    m_Bits: 4993
+    m_Bits: 7991
   weaponMask:
     serializedVersion: 2
     m_Bits: 512
