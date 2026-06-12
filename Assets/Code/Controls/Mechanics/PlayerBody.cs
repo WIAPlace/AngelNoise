@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerBody : MonoBehaviour, IPlayerHit
 {
     [SerializeField] private int health;
+    [SerializeField] private LayerMask projectileLayer;
+    [SerializeField] private int projectileDamage;
     public void Hit(int damage)
     {
         Debug.Log("Hit For "+ damage+" Damage" );
@@ -14,15 +16,11 @@ public class PlayerBody : MonoBehaviour, IPlayerHit
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if((projectileLayer.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            
+        }
     }
 }
