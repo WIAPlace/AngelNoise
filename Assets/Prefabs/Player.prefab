@@ -758,6 +758,7 @@ GameObject:
   - component: {fileID: 3480968932776151624}
   - component: {fileID: 2530827603876895224}
   - component: {fileID: 1134072323132410297}
+  - component: {fileID: 5881611584325615641}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -997,11 +998,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Resource: {fileID: 8300000, guid: 49465472f040693478671de788d9e094, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1083,6 +1084,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5881611584325615641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659617927075878084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eabb95ee206354c8772c33657ddd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeInOnStart
+  audioSources:
+  - {fileID: 1134072323132410297}
+  fadeDuration: 2
 --- !u!1 &8950092658026948399
 GameObject:
   m_ObjectHideFlags: 0
