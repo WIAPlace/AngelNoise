@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,10 +11,13 @@ public class EntityState_Move : EntityState_Abs
     void Start()
     {
         target = ProgressionManager.Instance.GetPlayer();
+        
     }
     /////////////////////////////////// DO ENTER
     public override void DoEnter()
     {   // When the state begins.
+        ResetAnims();
+        if(brain.spriteAnim!=null) brain.spriteAnim.SetTrigger("Walk");
         agent = brain.agent;
         
         rotationSpeed = agent.angularSpeed;
@@ -29,6 +31,7 @@ public class EntityState_Move : EntityState_Abs
     public override EntityState_Abs DoState()
     {
         if(agent.isOnNavMesh && target != null){
+            if(brain.spriteAnim !=null) brain.spriteAnim.SetFloat("spriteRot",brain.angleToPlayer.lastIndex);
             agent.SetDestination(target.transform.position);
 
             float distanceToTarget = (target.transform.position-transform.position).magnitude;
